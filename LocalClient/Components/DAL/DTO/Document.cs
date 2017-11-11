@@ -8,6 +8,7 @@ namespace FriendlyBudget.LocalClient.Components.DAL.DTO
 {
     /// <summary>
     /// Document DTO, not used at the moment, but will be in the future with Documents implementation.
+    /// SHOULD NOT BE USED RIGHT NOW!
     /// </summary>
     public class Document
     {

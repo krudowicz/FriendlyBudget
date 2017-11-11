@@ -8,14 +8,14 @@ namespace FriendlyBudget.LocalClient.Core.Interfaces
 {
     public interface IRepository<T>
     {
-        IEnumerable<T> Items { get; set; }
+        List<T> Items { get; set; }
 
         IEnumerable<T> GetAll();
         IEnumerable<T> GetByQuery(string query);
         T GetOne(long id);
         void Add(T item);
-        void Update(T oldItem, T newItem);
-        void Update(IEnumerable<T> oldItems, IEnumerable<T> newItems);
+        void Update(T modifiedItem);
+        void Update(IEnumerable<T> modifiedItems);
         void Remove(T item);
     }
 }

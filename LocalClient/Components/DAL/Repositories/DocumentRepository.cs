@@ -8,9 +8,13 @@ using FriendlyBudget.LocalClient.Core.Interfaces;
 
 namespace FriendlyBudget.LocalClient.Components.DAL.Repositories
 {
+    /// <summary>
+    /// DocumentRepository, not used at the moment, but will be in the future with Documents implementation.
+    /// SHOULD NOT BE USED RIGHT NOW!
+    /// </summary>
     class DocumentRepository : IRepository<Document>
     {
-        public IEnumerable<Document> Items { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public List<Document> Items { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         public void Add(Document item)
         {
@@ -37,12 +41,12 @@ namespace FriendlyBudget.LocalClient.Components.DAL.Repositories
             throw new NotImplementedException();
         }
 
-        public void Update(Document oldItem, Document newItem)
+        public void Update(Document modifiedItem)
         {
             throw new NotImplementedException();
         }
 
-        public void Update(IEnumerable<Document> oldItems, IEnumerable<Document> newItems)
+        public void Update(IEnumerable<Document> modifiedItems)
         {
             throw new NotImplementedException();
         }

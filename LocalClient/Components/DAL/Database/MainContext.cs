@@ -8,7 +8,7 @@ using FriendlyBudget.LocalClient.Components.DAL.DTO;
 
 namespace FriendlyBudget.LocalClient.Components.DAL.Database
 {
-    class MainContext : DbContext
+    internal class MainContext : DbContext
     {
         public DbSet<FamilyMember> FamilyMembers { get; set; }
         public DbSet<Income> Incomes { get; set; }
