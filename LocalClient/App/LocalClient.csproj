@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1E252087-83B3-44F3-AFA3-1E705864E5F6}</ProjectGuid>
+    <ProjectGuid>{7F43A021-8799-4A63-A6D3-2CA29D4FABEB}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>FriendlyBudget</RootNamespace>
-    <AssemblyName>FriendlyBudget</AssemblyName>
+    <RootNamespace>FriendlyBudget.LocalClient.App</RootNamespace>
+    <AssemblyName>FriendlyBudget.LocalClient.App</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -92,6 +92,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ViewModel\" />
+    <Folder Include="View\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

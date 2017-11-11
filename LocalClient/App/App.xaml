@@ -1,7 +1,7 @@
-﻿<Application x:Class="FriendlyBudget.App"
+﻿<Application x:Class="LocalClient.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:FriendlyBudget"
+             xmlns:local="clr-namespace:LocalClient"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
          
