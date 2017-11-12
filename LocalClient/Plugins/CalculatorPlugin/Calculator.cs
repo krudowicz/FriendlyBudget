@@ -12,9 +12,10 @@ namespace FriendlyBudget.LocalClient.Plugins.CalculatorPlugin
     {
         #region Fields
 
-        private FamilyMember _familyMember;
-        private List<Income> _incomes;
-        private List<Expenditure> _expenditures;
+        readonly private FamilyMember _familyMember;
+        readonly private List<FamilyMember> _familyMembersList;
+        readonly private List<Income> _incomes;
+        readonly private List<Expenditure> _expenditures;
 
         #endregion
 
@@ -49,10 +50,12 @@ namespace FriendlyBudget.LocalClient.Plugins.CalculatorPlugin
             _expenditures = expenditures;
         }
 
-        //TODO: Implement way to operate on multiple FamilyMember Incomes and Expenditures comfortably.
         public Calculator(List<FamilyMember> familyMembers)
         {
-            //_familyMembers = familyMembers;
+            foreach(FamilyMember familyMember in familyMembers)
+            {
+                _familyMembersList.Add(familyMember);
+            }
         }
 
         public Calculator(Income income, Expenditure expenditure)
@@ -109,6 +112,11 @@ namespace FriendlyBudget.LocalClient.Plugins.CalculatorPlugin
             return sum;
         }
 
+        public decimal SumAllIncomes()
+        {
+            throw new NotImplementedException();
+        }
+
         public decimal SumExpenditures()
         {
             decimal sum = 0;
@@ -119,6 +127,11 @@ namespace FriendlyBudget.LocalClient.Plugins.CalculatorPlugin
             }
 
             return sum;
+        }
+
+        public decimal SumAllExpenditures()
+        {
+            throw new NotImplementedException();
         }
 
         public decimal CalculateBalance()
