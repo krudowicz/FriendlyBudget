@@ -52,6 +52,8 @@ namespace FriendlyBudget.LocalClient.Plugins.CalculatorPlugin
 
         public Calculator(List<FamilyMember> familyMembers)
         {
+            _familyMembersList = new List<FamilyMember>();
+
             foreach(FamilyMember familyMember in familyMembers)
             {
                 _familyMembersList.Add(familyMember);
