@@ -20,10 +20,10 @@ namespace FriendlyBudget.LocalClient.Plugins.CalculatorPlugin
 
         #region Properties
 
-        public double Incomes { get; set; }
-        public double Expenditures { get; set; }
-        public double Balance { get; set; }
-        public double BudgetBalance { get; set; }
+        public decimal Incomes { get; set; }
+        public decimal Expenditures { get; set; }
+        public decimal Balance { get; set; }
+        public decimal BudgetBalance { get; set; }
 
         #endregion
 
@@ -67,7 +67,7 @@ namespace FriendlyBudget.LocalClient.Plugins.CalculatorPlugin
             _expenditures = expenditures.ToList();
         }
 
-        public Calculator(double income, double expenditure)
+        public Calculator(decimal income, decimal expenditure)
         {
             Income newIncome = new Income();
             Expenditure newExpenditure = new Expenditure();
@@ -76,16 +76,16 @@ namespace FriendlyBudget.LocalClient.Plugins.CalculatorPlugin
             newExpenditure.Amount = expenditure;
         }
 
-        public Calculator(IEnumerable<double> incomes, IEnumerable<double> expenditures)
+        public Calculator(IEnumerable<decimal> incomes, IEnumerable<decimal> expenditures)
         {
-            foreach(double income in incomes)
+            foreach(decimal income in incomes)
             {
                 Income newIncome = new Income();
                 newIncome.Amount = income;
                 _incomes.Add(newIncome);
             }
 
-            foreach(double expenditure in expenditures)
+            foreach(decimal expenditure in expenditures)
             {
                 Expenditure newExpenditure = new Expenditure();
                 newExpenditure.Amount = expenditure;
@@ -97,9 +97,9 @@ namespace FriendlyBudget.LocalClient.Plugins.CalculatorPlugin
 
         #region Public Methods
 
-        public double SumIncomes()
+        public decimal SumIncomes()
         {
-            double sum = 0;
+            decimal sum = 0;
 
             foreach(Income income in _incomes)
             {
@@ -109,9 +109,9 @@ namespace FriendlyBudget.LocalClient.Plugins.CalculatorPlugin
             return sum;
         }
 
-        public double SumExpenditures()
+        public decimal SumExpenditures()
         {
-            double sum = 0;
+            decimal sum = 0;
 
             foreach(Expenditure expenditure in _expenditures)
             {
@@ -121,9 +121,9 @@ namespace FriendlyBudget.LocalClient.Plugins.CalculatorPlugin
             return sum;
         }
 
-        public double CalculateBalance()
+        public decimal CalculateBalance()
         {
-            double balance = 0;
+            decimal balance = 0;
 
             foreach(Income income in _familyMember.Incomes)
             {
@@ -140,10 +140,10 @@ namespace FriendlyBudget.LocalClient.Plugins.CalculatorPlugin
             return balance;
         }
 
-        public double CalculateBudgetBalance()
+        public decimal CalculateBudgetBalance()
         {
-            double budgetBalance = 0;
-            double expenditureSum = 0;
+            decimal budgetBalance = 0;
+            decimal expenditureSum = 0;
 
             foreach(Expenditure expenditure in _familyMember.Expenditures)
             {

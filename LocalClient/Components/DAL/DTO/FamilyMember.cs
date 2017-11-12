@@ -13,8 +13,8 @@ namespace FriendlyBudget.LocalClient.Components.DAL.DTO
         public string LastName { get; set; }
         public List<Income> Incomes { get; set; }
         public List<Expenditure> Expenditures { get; set; }
-        public double BudgetSet { get; set; }
-        public double BudgetBalance { get; set; }
-        public double Balance { get; set; }
+        public decimal BudgetSet { get; set; }
+        public decimal BudgetBalance { get; set; }
+        public decimal Balance { get; set; }
     }
 }
