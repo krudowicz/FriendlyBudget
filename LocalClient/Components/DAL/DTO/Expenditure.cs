@@ -10,6 +10,5 @@ namespace FriendlyBudget.LocalClient.Components.DAL.DTO
     public class Expenditure : MoneyObject
     {
         public ExpenditureCategory Category { get; set; }
-        public FamilyMember FamilyMember { get; set; }
     }
 }

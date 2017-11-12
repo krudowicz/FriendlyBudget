@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FriendlyBudget.LocalClient.Core.Abstraction
 {
-    public class MoneyObject
+    public abstract class MoneyObject
     {
         public long Id { get; set; }
         public string Name { get; set; }
@@ -14,5 +14,6 @@ namespace FriendlyBudget.LocalClient.Core.Abstraction
         public decimal Amount { get; set; }
         public DateTime Date { get; set; }
         public bool Constant { get; set; }
+        public Person Person { get; set; }
     }
 }

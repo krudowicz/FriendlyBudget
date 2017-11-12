@@ -45,6 +45,10 @@
     <Compile Include="ValidationHelper.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Core\Abstraction\Abstraction.csproj">
+      <Project>{6CCBC3E6-FDBB-4154-900B-36C4E351CD91}</Project>
+      <Name>Abstraction</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\Core\Interfaces\Interfaces.csproj">
       <Project>{7b410779-fd59-4a18-8103-f5c34009be1f}</Project>
       <Name>Interfaces</Name>

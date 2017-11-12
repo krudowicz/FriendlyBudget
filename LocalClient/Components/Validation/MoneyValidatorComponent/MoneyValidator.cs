@@ -33,7 +33,8 @@ namespace FriendlyBudget.LocalClient.Components.Validation.MoneyValidatorCompone
         {
             if(!String.IsNullOrWhiteSpace(_moneyObject.Name) &&
                _moneyObject.Amount > 0 &&
-               _moneyObject.Date != null)
+               _moneyObject.Date != null &&
+               _moneyObject.Person != null)
             {
                 IsValid = true;
             }

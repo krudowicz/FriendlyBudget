@@ -22,7 +22,7 @@ namespace FriendlyBudget.LocalClient.Tests.ComponentTests
             validMoneyObject.Amount = 100;
             validMoneyObject.Name = "Jedzenie";
             validMoneyObject.Date = DateTime.Today;
-            validMoneyObject.FamilyMember = familyMember;
+            validMoneyObject.Person = familyMember;
 
             invalidMoneyObject.Amount = 0;
             invalidMoneyObject.Name = "Gry";
