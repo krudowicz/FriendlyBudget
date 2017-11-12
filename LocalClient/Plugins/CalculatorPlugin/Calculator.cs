@@ -1,0 +1,166 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using FriendlyBudget.LocalClient.Components.DAL.DTO;
+
+
+namespace FriendlyBudget.LocalClient.Plugins.CalculatorPlugin
+{
+    public class Calculator
+    {
+        #region Fields
+
+        private FamilyMember _familyMember;
+        private List<Income> _incomes;
+        private List<Expenditure> _expenditures;
+
+        #endregion
+
+        #region Properties
+
+        public double Incomes { get; set; }
+        public double Expenditures { get; set; }
+        public double Balance { get; set; }
+        public double BudgetBalance { get; set; }
+
+        #endregion
+
+        #region Constructors
+
+        public Calculator(FamilyMember familyMember)
+        {
+            _familyMember = familyMember;
+            List<Income> incomes = new List<Income>();
+            List<Expenditure> expenditures = new List<Expenditure>();
+            
+            foreach(Income income in familyMember.Incomes)
+            {
+                incomes.Add(income);
+            }
+
+            foreach(Expenditure expenditure in familyMember.Expenditures)
+            {
+                expenditures.Add(expenditure);
+            }
+
+            _incomes = incomes;
+            _expenditures = expenditures;
+        }
+
+        //TODO: Implement way to operate on multiple FamilyMember Incomes and Expenditures comfortably.
+        public Calculator(List<FamilyMember> familyMembers)
+        {
+            //_familyMembers = familyMembers;
+        }
+
+        public Calculator(Income income, Expenditure expenditure)
+        {
+            _incomes.Add(income);
+            _expenditures.Add(expenditure);
+        }
+
+        public Calculator(IEnumerable<Income> incomes, IEnumerable<Expenditure> expenditures)
+        {
+            _incomes = incomes.ToList();
+            _expenditures = expenditures.ToList();
+        }
+
+        public Calculator(double income, double expenditure)
+        {
+            Income newIncome = new Income();
+            Expenditure newExpenditure = new Expenditure();
+
+            newIncome.Amount = income;
+            newExpenditure.Amount = expenditure;
+        }
+
+        public Calculator(IEnumerable<double> incomes, IEnumerable<double> expenditures)
+        {
+            foreach(double income in incomes)
+            {
+                Income newIncome = new Income();
+                newIncome.Amount = income;
+                _incomes.Add(newIncome);
+            }
+
+            foreach(double expenditure in expenditures)
+            {
+                Expenditure newExpenditure = new Expenditure();
+                newExpenditure.Amount = expenditure;
+                _expenditures.Add(newExpenditure);
+            }
+        }
+
+        #endregion
+
+        #region Public Methods
+
+        public double SumIncomes()
+        {
+            double sum = 0;
+
+            foreach(Income income in _incomes)
+            {
+                sum += income.Amount;
+            }
+
+            return sum;
+        }
+
+        public double SumExpenditures()
+        {
+            double sum = 0;
+
+            foreach(Expenditure expenditure in _expenditures)
+            {
+                sum += expenditure.Amount;
+            }
+
+            return sum;
+        }
+
+        public double CalculateBalance()
+        {
+            double balance = 0;
+
+            foreach(Income income in _familyMember.Incomes)
+            {
+                balance += income.Amount;
+            }
+
+            foreach(Expenditure expenditure in _familyMember.Expenditures)
+            {
+                balance -= expenditure.Amount;
+            }
+
+
+
+            return balance;
+        }
+
+        public double CalculateBudgetBalance()
+        {
+            double budgetBalance = 0;
+            double expenditureSum = 0;
+
+            foreach(Expenditure expenditure in _familyMember.Expenditures)
+            {
+                expenditureSum += expenditure.Amount;
+            }
+
+            budgetBalance = _familyMember.BudgetSet - expenditureSum;
+
+            return budgetBalance;
+        }
+
+        #endregion
+
+        #region Methods
+
+
+
+        #endregion
+    }
+}

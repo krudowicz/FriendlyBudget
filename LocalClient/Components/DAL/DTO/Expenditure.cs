@@ -11,6 +11,7 @@ namespace FriendlyBudget.LocalClient.Components.DAL.DTO
         public long Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
+        public double Amount { get; set; }
         public DateTime Date { get; set; }
         public bool Constant { get; set; }
         public ExpenditureCategory Category { get; set; }
