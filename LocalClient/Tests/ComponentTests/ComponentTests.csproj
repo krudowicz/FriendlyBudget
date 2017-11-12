@@ -40,6 +40,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="FamilyMemberValidatorComponentTest.cs" />
+    <Compile Include="MoneyValidatorComponentTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -62,6 +63,14 @@
     <ProjectReference Include="..\..\Components\Validation\FamilyMemberValidatorComponent\FamilyMemberValidatorComponent.csproj">
       <Project>{50094ADC-1C3A-452E-80A5-06A52EACCA46}</Project>
       <Name>FamilyMemberValidatorComponent</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Components\Validation\MoneyValidatorComponent\MoneyValidatorComponent.csproj">
+      <Project>{274dd573-c294-4a63-991c-acc1d3d338fe}</Project>
+      <Name>MoneyValidatorComponent</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\Abstraction\Abstraction.csproj">
+      <Project>{6ccbc3e6-fdbb-4154-900b-36c4e351cd91}</Project>
+      <Name>Abstraction</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />

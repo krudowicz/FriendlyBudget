@@ -35,9 +35,6 @@ namespace FriendlyBudget.LocalClient.Components.Validation.FamilyMemberValidator
                !String.IsNullOrWhiteSpace(_familyMember.LastName))
             {
                 IsValid = true;
-            } else
-            {
-                IsValid = false;
             }
         }
     }

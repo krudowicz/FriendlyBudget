@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FriendlyBudget.LocalClient.Core.Interfaces;
 using FriendlyBudget.LocalClient.Components.DAL.DTO;
 using FriendlyBudget.LocalClient.Components.DAL.Database;
-using FriendlyBudget.LocalClient.Core.Interfaces;
 
 namespace FriendlyBudget.LocalClient.Components.DAL.Repositories
 {

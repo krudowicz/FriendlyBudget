@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{46F33E41-41D6-4A01-84A8-F601E0822596}</ProjectGuid>
+    <ProjectGuid>{274DD573-C294-4A63-991C-ACC1D3D338FE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FriendlyBudget.LocalClient.Components.DAL.Repositories</RootNamespace>
-    <AssemblyName>FriendlyBudget.LocalClient.Components.DAL.Repositories</AssemblyName>
+    <RootNamespace>FriendlyBudget.LocalClient.Components.Validation.MoneyValidatorComponent</RootNamespace>
+    <AssemblyName>FriendlyBudget.LocalClient.Components.ValidationMoney.ValidatorComponent</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,14 +30,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -47,35 +40,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DocumentRepository.cs" />
-    <Compile Include="ExpenditureCategoryRepository.cs" />
-    <Compile Include="ExpenditureRepository.cs" />
-    <Compile Include="FamilyMemberRepository.cs" />
-    <Compile Include="IncomeCategoryRepository.cs" />
-    <Compile Include="IncomeRepository.cs" />
+    <Compile Include="MoneyValidator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\Core\Abstraction\Abstraction.csproj">
-      <Project>{6ccbc3e6-fdbb-4154-900b-36c4e351cd91}</Project>
+      <Project>{6CCBC3E6-FDBB-4154-900B-36C4E351CD91}</Project>
       <Name>Abstraction</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\Core\Interfaces\Interfaces.csproj">
-      <Project>{7b410779-fd59-4a18-8103-f5c34009be1f}</Project>
+      <Project>{7B410779-FD59-4A18-8103-F5C34009BE1F}</Project>
       <Name>Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Database\Database.csproj">
-      <Project>{91ccade0-79bf-49b7-a15f-76fae5087c38}</Project>
-      <Name>Database</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DTO\DTO.csproj">
+    <ProjectReference Include="..\..\DAL\DTO\DTO.csproj">
       <Project>{a7bb5efa-a0e1-4bf1-ba1e-16032a04405d}</Project>
       <Name>DTO</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
