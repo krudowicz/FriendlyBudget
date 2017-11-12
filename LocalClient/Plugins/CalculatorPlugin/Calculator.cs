@@ -21,9 +21,39 @@ namespace FriendlyBudget.LocalClient.Plugins.CalculatorPlugin
 
         #region Properties
 
+        /// <summary>
+        /// Incomes of a FamilyMember
+        /// </summary>
         public decimal Incomes { get; set; }
+
+        /// <summary>
+        /// Incomes of whole Family
+        /// </summary>
+        public decimal FamilyIncomes { get; set; }
+
+        /// <summary>
+        /// Expenditures of a FamilyMember
+        /// </summary>
         public decimal Expenditures { get; set; }
+
+        /// <summary>
+        /// Expenditures of whole Family
+        /// </summary>
+        public decimal FamilyExpenditures { get; set; }
+
+        /// <summary>
+        /// Balance of a FamilyMember
+        /// </summary>
         public decimal Balance { get; set; }
+
+        /// <summary>
+        /// Balance of whole Family
+        /// </summary>
+        public decimal FamilyBalance { get; set; }
+
+        /// <summary>
+        /// BudgetBalance of a FamilyMember
+        /// </summary>
         public decimal BudgetBalance { get; set; }
 
         #endregion
@@ -112,9 +142,19 @@ namespace FriendlyBudget.LocalClient.Plugins.CalculatorPlugin
             return sum;
         }
 
-        public decimal SumAllIncomes()
+        public decimal SumFamilyIncomes()
         {
-            throw new NotImplementedException();
+            decimal sum = 0; 
+
+            foreach(FamilyMember familyMember in _familyMembersList)
+            {
+                foreach(Income income in familyMember.Incomes)
+                {
+                    sum += income.Amount;
+                }
+            }
+
+            return sum;
         }
 
         public decimal SumExpenditures()
@@ -129,26 +169,62 @@ namespace FriendlyBudget.LocalClient.Plugins.CalculatorPlugin
             return sum;
         }
 
-        public decimal SumAllExpenditures()
+        public decimal SumFamilyExpenditures()
         {
-            throw new NotImplementedException();
+            decimal sum = 0;
+
+            foreach(FamilyMember familyMember in _familyMembersList)
+            {
+                foreach(Expenditure expenditure in familyMember.Expenditures)
+                {
+                    sum += expenditure.Amount;
+                }
+            }
+
+            return sum;
         }
 
         public decimal CalculateBalance()
         {
             decimal balance = 0;
+            decimal incomeSum = 0;
+            decimal expenditureSum = 0;
 
             foreach(Income income in _familyMember.Incomes)
             {
-                balance += income.Amount;
+                incomeSum += income.Amount;
             }
 
             foreach(Expenditure expenditure in _familyMember.Expenditures)
             {
-                balance -= expenditure.Amount;
+                expenditureSum += expenditure.Amount;
             }
 
+            balance = incomeSum - expenditureSum;
 
+            return balance;
+        }
+
+        public decimal CalculateFamilyBalance()
+        {
+            decimal balance = 0;
+            decimal incomeSum = 0;
+            decimal expenditureSum = 0;
+
+            foreach(FamilyMember familyMember in _familyMembersList)
+            {
+                foreach(Income income in familyMember.Incomes)
+                {
+                    incomeSum += income.Amount;
+                }
+
+                foreach(Expenditure expenditure in familyMember.Expenditures)
+                {
+                    expenditureSum += expenditure.Amount;
+                }
+            }
+
+            balance = incomeSum - expenditureSum;
 
             return balance;
         }
