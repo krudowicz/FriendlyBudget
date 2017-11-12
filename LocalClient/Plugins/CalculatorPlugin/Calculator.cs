@@ -13,7 +13,7 @@ namespace FriendlyBudget.LocalClient.Plugins.CalculatorPlugin
         #region Fields
 
         readonly private FamilyMember _familyMember;
-        readonly private List<FamilyMember> _familyMembersList;
+        readonly private List<FamilyMember> _familyMembersList = new List<FamilyMember>();
         readonly private List<Income> _incomes;
         readonly private List<Expenditure> _expenditures;
 
@@ -52,8 +52,6 @@ namespace FriendlyBudget.LocalClient.Plugins.CalculatorPlugin
 
         public Calculator(List<FamilyMember> familyMembers)
         {
-            _familyMembersList = new List<FamilyMember>();
-
             foreach(FamilyMember familyMember in familyMembers)
             {
                 _familyMembersList.Add(familyMember);
