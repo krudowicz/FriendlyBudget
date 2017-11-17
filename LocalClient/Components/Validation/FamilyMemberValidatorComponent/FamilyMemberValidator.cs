@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using FriendlyBudget.LocalClient.Core.Interfaces;
+using FriendlyBudget.LocalClient.Components.Core.Interfaces;
 using FriendlyBudget.LocalClient.Components.DAL.DTO;
 
 namespace FriendlyBudget.LocalClient.Components.Validation.FamilyMemberValidatorComponent
