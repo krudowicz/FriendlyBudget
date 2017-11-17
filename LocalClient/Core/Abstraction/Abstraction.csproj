@@ -7,8 +7,8 @@
     <ProjectGuid>{6CCBC3E6-FDBB-4154-900B-36C4E351CD91}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FriendlyBudget.LocalClient.Core.Abstraction</RootNamespace>
-    <AssemblyName>FriendlyBudget.LocalClient.Core.Abstraction</AssemblyName>
+    <RootNamespace>FriendlyBudget.LocalClient.Components.Core.Abstraction</RootNamespace>
+    <AssemblyName>FriendlyBudget.LocalClient.Components.Core.Abstraction</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using FriendlyBudget.LocalClient.Core.Abstraction;
+using FriendlyBudget.LocalClient.Components.Core.Abstraction;
 
 namespace FriendlyBudget.LocalClient.Components.DAL.DTO
 {

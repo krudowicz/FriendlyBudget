@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FriendlyBudget.LocalClient.Core.Abstraction
+namespace FriendlyBudget.LocalClient.Components.Core.Abstraction
 {
     public abstract class MoneyObject
     {

@@ -7,8 +7,8 @@
     <ProjectGuid>{7B410779-FD59-4A18-8103-F5C34009BE1F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FriendlyBudget.LocalClient.Core.Interfaces</RootNamespace>
-    <AssemblyName>FriendlyBudget.LocalClient.Core.Interfaces</AssemblyName>
+    <RootNamespace>FriendlyBudget.LocalClient.Components.Core.Interfaces</RootNamespace>
+    <AssemblyName>FriendlyBudget.LocalClient.Components.Core.Interfaces</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

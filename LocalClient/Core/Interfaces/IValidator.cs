@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FriendlyBudget.LocalClient.Core.Interfaces
+namespace FriendlyBudget.LocalClient.Components.Core.Interfaces
 {
     public interface IValidator<T>
     {
