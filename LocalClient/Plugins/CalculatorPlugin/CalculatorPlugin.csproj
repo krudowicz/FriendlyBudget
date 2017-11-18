@@ -44,13 +44,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Components\Core\Abstraction\Abstraction.csproj">
+      <Project>{6CCBC3E6-FDBB-4154-900B-36C4E351CD91}</Project>
+      <Name>Abstraction</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Components\DAL\DTO\DTO.csproj">
       <Project>{a7bb5efa-a0e1-4bf1-ba1e-16032a04405d}</Project>
       <Name>DTO</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Core\Abstraction\Abstraction.csproj">
-      <Project>{6ccbc3e6-fdbb-4154-900b-36c4e351cd91}</Project>
-      <Name>Abstraction</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

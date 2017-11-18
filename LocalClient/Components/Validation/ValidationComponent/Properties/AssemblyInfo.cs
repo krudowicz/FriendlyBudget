@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("MoneyValidatorComponent")]
+[assembly: AssemblyTitle("ValidationComponent")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("MoneyValidatorComponent")]
+[assembly: AssemblyProduct("ValidationComponent")]
 [assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("274dd573-c294-4a63-991c-acc1d3d338fe")]
+[assembly: Guid("2fe88d9e-16be-4c6d-8390-efc7086e5d5f")]
 
 // Version information for an assembly consists of the following four values:
 //

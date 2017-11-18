@@ -40,16 +40,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Category.cs" />
     <Compile Include="Document.cs" />
     <Compile Include="Expenditure.cs" />
-    <Compile Include="ExpenditureCategory.cs" />
     <Compile Include="FamilyMember.cs" />
     <Compile Include="Income.cs" />
-    <Compile Include="IncomeCategory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ValidationRule.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Core\Abstraction\Abstraction.csproj">
+    <ProjectReference Include="..\..\Core\Abstraction\Abstraction.csproj">
       <Project>{6ccbc3e6-fdbb-4154-900b-36c4e351cd91}</Project>
       <Name>Abstraction</Name>
     </ProjectReference>

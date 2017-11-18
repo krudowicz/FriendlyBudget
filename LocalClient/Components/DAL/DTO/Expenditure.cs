@@ -9,6 +9,6 @@ namespace FriendlyBudget.LocalClient.Components.DAL.DTO
 {
     public class Expenditure : MoneyObject
     {
-        public ExpenditureCategory Category { get; set; }
+        public Category Category { get; set; }
     }
 }

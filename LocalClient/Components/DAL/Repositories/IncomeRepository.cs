@@ -48,7 +48,7 @@ namespace FriendlyBudget.LocalClient.Components.DAL.Repositories
             }
         }
 
-        public Income GetOne(long id)
+        public Income GetOne(ulong id)
         {
             using(var context = new MainContext())
             {

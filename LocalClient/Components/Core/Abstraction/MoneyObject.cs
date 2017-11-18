@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace FriendlyBudget.LocalClient.Components.Core.Abstraction
 {
-    public abstract class MoneyObject
+    public abstract class MoneyObject : DataObject
     {
-        public long Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public decimal Amount { get; set; }

@@ -58,7 +58,7 @@ namespace FriendlyBudget.LocalClient.Components.DAL.Repositories
             }
         }
 
-        public FamilyMember GetOne(long id)
+        public FamilyMember GetOne(ulong id)
         {
             using(var context = new MainContext())
             {

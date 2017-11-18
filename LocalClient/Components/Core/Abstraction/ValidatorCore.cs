@@ -6,10 +6,15 @@ using System.Threading.Tasks;
 
 namespace FriendlyBudget.LocalClient.Components.Core.Abstraction
 {
-    public abstract class Person
+    public class ValidatorCore<T>
     {
-        public long Id { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
+        protected T _entity;
+        protected Dictionary<string, string> _ruleSet;
+
+        protected virtual void TryValidate()
+        {
+
+            
+        }
     }
 }

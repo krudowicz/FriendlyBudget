@@ -13,7 +13,6 @@ namespace FriendlyBudget.LocalClient.Components.DAL.Database
         public DbSet<FamilyMember> FamilyMembers { get; set; }
         public DbSet<Income> Incomes { get; set; }
         public DbSet<Expenditure> Expenditures { get; set; }
-        public DbSet<IncomeCategory> IncomeCategories { get; set; }
-        public DbSet<ExpenditureCategory> ExpenditureCategories { get; set; }
+        public DbSet<Category> Categories { get; set; }
     }
 }

@@ -9,17 +9,17 @@ using FriendlyBudget.LocalClient.Components.Core.Interfaces;
 
 namespace FriendlyBudget.LocalClient.Components.DAL.Repositories
 {
-    class ExpenditureCategoryRepository : IRepository<ExpenditureCategory>
+    class CategoryRepository : IRepository<Category>
     {
         #region Fields
 
-        private List<ExpenditureCategory> _items;
+        private List<Category> _items;
 
         #endregion
 
         #region Properties
 
-        public List<ExpenditureCategory> Items
+        public List<Category> Items
         {
             get { return _items; }
             set => _items = value;
@@ -29,7 +29,7 @@ namespace FriendlyBudget.LocalClient.Components.DAL.Repositories
 
         #region Public Methods
 
-        public void Add(ExpenditureCategory item)
+        public void Add(Category item)
         {
             using (var context = new MainContext())
             {
@@ -38,44 +38,44 @@ namespace FriendlyBudget.LocalClient.Components.DAL.Repositories
             }
         }
 
-        public IEnumerable<ExpenditureCategory> GetAll()
+        public IEnumerable<Category> GetAll()
         {
             using (var context = new MainContext())
             {
-                IEnumerable<ExpenditureCategory> expenditureCategories = context.ExpenditureCategories.AsEnumerable();
-                UpdateItemsList(expenditureCategories);
-                return expenditureCategories;
+                IEnumerable<Category> Categories = context.Categories.AsEnumerable();
+                UpdateItemsList(Categories);
+                return Categories;
             }
         }
 
-        public IEnumerable<ExpenditureCategory> GetByQuery(string query)
+        public IEnumerable<Category> GetByQuery(string query)
         {
             using (var context = new MainContext())
             {
-                IEnumerable<ExpenditureCategory> expenditureCategories = context.ExpenditureCategories.SqlQuery(query);
-                UpdateItemsList(expenditureCategories);
-                return expenditureCategories;
+                IEnumerable<Category> Categories = context.Categories.SqlQuery(query);
+                UpdateItemsList(Categories);
+                return Categories;
             }
         }
 
-        public ExpenditureCategory GetOne(long id)
+        public Category GetOne(ulong id)
         {
             using (var context = new MainContext())
             {
-                ExpenditureCategory expenditureCategory;
-                var query = (from c in context.ExpenditureCategories
+                Category Category;
+                var query = (from c in context.Categories
                              where c.Id == id
                              select c);
 
-                expenditureCategory = query.FirstOrDefault();
+                Category = query.FirstOrDefault();
 
-                UpdateItemsList(expenditureCategory);
+                UpdateItemsList(Category);
 
-                return expenditureCategory;
+                return Category;
             }
         }
 
-        public void Remove(ExpenditureCategory item)
+        public void Remove(Category item)
         {
             using (var context = new MainContext())
             {
@@ -84,7 +84,7 @@ namespace FriendlyBudget.LocalClient.Components.DAL.Repositories
             }
         }
 
-        public void Update(ExpenditureCategory modifiedItem)
+        public void Update(Category modifiedItem)
         {
             using (var context = new MainContext())
             {
@@ -94,11 +94,11 @@ namespace FriendlyBudget.LocalClient.Components.DAL.Repositories
             }
         }
 
-        public void Update(IEnumerable<ExpenditureCategory> modifiedItems)
+        public void Update(IEnumerable<Category> modifiedItems)
         {
             using (var context = new MainContext())
             {
-                foreach (ExpenditureCategory modifiedItem in modifiedItems)
+                foreach (Category modifiedItem in modifiedItems)
                 {
                     context.Entry(modifiedItem).State = System.Data.Entity.EntityState.Modified;
                 }
@@ -112,13 +112,13 @@ namespace FriendlyBudget.LocalClient.Components.DAL.Repositories
 
         #region Methods
 
-        private void UpdateItemsList(ExpenditureCategory item)
+        private void UpdateItemsList(Category item)
         {
             Items.Clear();
             Items.Add(item);
         }
 
-        private void UpdateItemsList(IEnumerable<ExpenditureCategory> items)
+        private void UpdateItemsList(IEnumerable<Category> items)
         {
             Items = items.ToList();
         }

@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{50094ADC-1C3A-452E-80A5-06A52EACCA46}</ProjectGuid>
+    <ProjectGuid>{6CCBC3E6-FDBB-4154-900B-36C4E351CD91}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FriendlyBudget.LocalClient.Components.Validation.FamilyMemberValidatorComponent</RootNamespace>
-    <AssemblyName>FriendlyBudget.LocalClient.Components.Validation.FamilyMemberValidatorComponent</AssemblyName>
+    <RootNamespace>FriendlyBudget.LocalClient.Components.Core.Abstraction</RootNamespace>
+    <AssemblyName>FriendlyBudget.LocalClient.Components.Core.Abstraction</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,23 +40,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FamilyMemberValidator.cs" />
+    <Compile Include="DataObject.cs" />
+    <Compile Include="MoneyObject.cs" />
+    <Compile Include="Person.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ValidationHelper.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\Core\Abstraction\Abstraction.csproj">
-      <Project>{6CCBC3E6-FDBB-4154-900B-36C4E351CD91}</Project>
-      <Name>Abstraction</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\Core\Interfaces\Interfaces.csproj">
-      <Project>{7b410779-fd59-4a18-8103-f5c34009be1f}</Project>
-      <Name>Interfaces</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\DAL\DTO\DTO.csproj">
-      <Project>{A7BB5EFA-A0E1-4BF1-BA1E-16032A04405D}</Project>
-      <Name>DTO</Name>
-    </ProjectReference>
+    <Compile Include="ValidatorCore.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

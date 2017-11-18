@@ -58,7 +58,7 @@ namespace FriendlyBudget.LocalClient.Components.DAL.Repositories
             }
         }
 
-        public Expenditure GetOne(long id)
+        public Expenditure GetOne(ulong id)
         {
             using (var context = new MainContext())
             {

@@ -31,7 +31,7 @@ namespace FriendlyBudget.LocalClient.Components.DAL.Repositories
             throw new NotImplementedException();
         }
 
-        public Document GetOne(long id)
+        public Document GetOne(ulong id)
         {
             throw new NotImplementedException();
         }

@@ -48,19 +48,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DocumentRepository.cs" />
-    <Compile Include="ExpenditureCategoryRepository.cs" />
+    <Compile Include="CategoryRepository.cs" />
     <Compile Include="ExpenditureRepository.cs" />
     <Compile Include="FamilyMemberRepository.cs" />
-    <Compile Include="IncomeCategoryRepository.cs" />
     <Compile Include="IncomeRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Core\Abstraction\Abstraction.csproj">
-      <Project>{6ccbc3e6-fdbb-4154-900b-36c4e351cd91}</Project>
+    <ProjectReference Include="..\..\Core\Abstraction\Abstraction.csproj">
+      <Project>{6CCBC3E6-FDBB-4154-900B-36C4E351CD91}</Project>
       <Name>Abstraction</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\Core\Interfaces\Interfaces.csproj">
+    <ProjectReference Include="..\..\Core\Interfaces\Interfaces.csproj">
       <Project>{7b410779-fd59-4a18-8103-f5c34009be1f}</Project>
       <Name>Interfaces</Name>
     </ProjectReference>

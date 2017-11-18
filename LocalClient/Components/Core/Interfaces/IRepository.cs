@@ -12,7 +12,7 @@ namespace FriendlyBudget.LocalClient.Components.Core.Interfaces
 
         IEnumerable<T> GetAll();
         IEnumerable<T> GetByQuery(string query);
-        T GetOne(long id);
+        T GetOne(ulong id);
         void Add(T item);
         void Update(T modifiedItem);
         void Update(IEnumerable<T> modifiedItems);

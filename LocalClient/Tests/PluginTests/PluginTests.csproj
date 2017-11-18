@@ -55,13 +55,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Components\Core\Abstraction\Abstraction.csproj">
+      <Project>{6CCBC3E6-FDBB-4154-900B-36C4E351CD91}</Project>
+      <Name>Abstraction</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Components\DAL\DTO\DTO.csproj">
       <Project>{A7BB5EFA-A0E1-4BF1-BA1E-16032A04405D}</Project>
       <Name>DTO</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Core\Abstraction\Abstraction.csproj">
-      <Project>{6CCBC3E6-FDBB-4154-900B-36C4E351CD91}</Project>
-      <Name>Abstraction</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Plugins\CalculatorPlugin\CalculatorPlugin.csproj">
       <Project>{084E6CC2-90AB-41E7-A663-5075C99D7C1D}</Project>
