@@ -14,5 +14,24 @@ namespace FriendlyBudget.LocalClient.Components.DAL.DTO
         public string Name { get; set; }
         public string Content { get; set; }
 
+        public ValidationRule()
+        {
+            LinkedEntityType = String.Empty;
+            Name = String.Empty;
+            Content = String.Empty;
+        }
+
+        public ValidationRule(string name, string content)
+        {
+            Name = name;
+            Content = content;
+        }
+
+        public ValidationRule(string linkedEntityType, string name, string content)
+        {
+            LinkedEntityType = linkedEntityType;
+            Name = name;
+            Content = content;
+        }
     }
 }

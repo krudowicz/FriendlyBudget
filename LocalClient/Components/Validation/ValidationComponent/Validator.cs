@@ -11,9 +11,24 @@ namespace FriendlyBudget.LocalClient.Components.Validation
 {
     public class Validator<T> : ValidatorCore<T>, IValidator<T>
     {
+        private bool _isValid = false;
         private List<ValidationRule> _ruleSetEntities;
 
-        public bool IsValid { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public bool IsValid
+        {
+            get { return _isValid; }
+            set => _isValid = value;
+        }
+
+        public Validator()
+        {
+            _ruleSetEntities = new List<ValidationRule>();
+        }
+
+        public bool Validate(T entity)
+        {
+            throw new NotImplementedException();
+        }
 
         public bool Validate(string entityType, T entity)
         {
@@ -22,7 +37,11 @@ namespace FriendlyBudget.LocalClient.Components.Validation
 
         public bool Validate(Dictionary<string, string> ruleSet, T entity)
         {
-            throw new NotImplementedException();
+            ParseValidationRules(ruleSet);
+
+            bool result = ValidateInternal(entity);
+
+            return result;
         }
 
         public bool Validate(string field, string rule, T entity)
@@ -38,6 +57,28 @@ namespace FriendlyBudget.LocalClient.Components.Validation
         public bool Validate(ValidationRule rule, T entity)
         {
             throw new NotImplementedException(); 
+        }
+
+        private void ParseValidationRules(Dictionary<string, string> ruleSet)
+        {
+            foreach(KeyValuePair<string, string> rule in ruleSet)
+            {
+                string name = rule.Key;
+                string content = rule.Value;
+                ValidationRule ruleEntity = new ValidationRule(name, content);
+                _ruleSetEntities.Add(ruleEntity);
+            }
+        }
+
+        private void ParseValidationRules(string field, string rule)
+        {
+            ValidationRule ruleEntity = new ValidationRule(field, rule);
+            _ruleSetEntities.Add(ruleEntity);
+        }
+
+        private void ParseValidationRules(ValidationRule rule)
+        {
+            _ruleSetEntities.Add(rule);
         }
 
         private void ParseValidationRules()
@@ -63,6 +104,11 @@ namespace FriendlyBudget.LocalClient.Components.Validation
                     _ruleSet.Add(ruleName, ruleContent);
                 }
             }
+        }
+
+        private bool ValidateInternal(T entity)
+        {
+            throw new NotImplementedException();
         }
     }
 }

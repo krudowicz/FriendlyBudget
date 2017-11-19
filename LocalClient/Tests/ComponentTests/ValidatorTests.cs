@@ -40,6 +40,7 @@ namespace FriendlyBudget.LocalClient.Tests.ComponentTests
             _income.Category = _incomeCategory;
             _income.Person = _familyMember;
             _income.Constant = true;
+            _income.Date = DateTime.Today.Date;
 
             _expenditure.Name = "Bulka";
             _expenditure.Amount = 0.8M;
@@ -62,9 +63,12 @@ namespace FriendlyBudget.LocalClient.Tests.ComponentTests
         [Test]
         public void FamilyMember_Is_Valid()
         {
-            bool expected = true;
-            bool actual = false;
+            FamilyMember familyMember = _familyMember;
+            Dictionary<string, string> ruleSet = new Dictionary<string, string>();
+            ruleSet.Add("name", "required");
 
+            bool expected = true;
+            bool actual = _validator.Validate(ruleSet, familyMember);
 
             Assert.AreEqual(expected, actual);
         }
@@ -72,8 +76,16 @@ namespace FriendlyBudget.LocalClient.Tests.ComponentTests
         [Test]
         public void Income_Is_Valid()
         {
+            Income income = _income;
+            Dictionary<string, string> ruleSet = new Dictionary<string, string>();
+            ruleSet.Add("name", "required");
+            ruleSet.Add("amount", "required");
+            ruleSet.Add("category", "required");
+            ruleSet.Add("person", "required");
+            ruleSet.Add("date", "required");
+
             bool expected = true;
-            bool actual = false;
+            bool actual = _validator.Validate(ruleSet, income);
 
 
             Assert.AreEqual(expected, actual);
@@ -82,9 +94,16 @@ namespace FriendlyBudget.LocalClient.Tests.ComponentTests
         [Test]
         public void Expenditure_Is_Invalid()
         {
-            bool expected = true;
-            bool actual = false;
+            Expenditure expenditure = _expenditure;
+            Dictionary<string, string> ruleSet = new Dictionary<string, string>();
+            ruleSet.Add("name", "required");
+            ruleSet.Add("amount", "required");
+            ruleSet.Add("category", "required");
+            ruleSet.Add("person", "required");
+            ruleSet.Add("date", "required");
 
+            bool expected = false;
+            bool actual = _validator.Validate(ruleSet, expenditure);
 
             Assert.AreEqual(expected, actual);
         }
@@ -92,8 +111,12 @@ namespace FriendlyBudget.LocalClient.Tests.ComponentTests
         [Test]
         public void Category_Is_Valid()
         {
+            Category category = _expenditureCategory;
+            Dictionary<string, string> ruleSet = new Dictionary<string, string>();
+            ruleSet.Add("name", "required");
+
             bool expected = true;
-            bool actual = false;
+            bool actual = _validator.Validate(ruleSet, category);
 
 
             Assert.AreEqual(expected, actual);
@@ -102,9 +125,12 @@ namespace FriendlyBudget.LocalClient.Tests.ComponentTests
         [Test]
         public void Category_Is_Invalid()
         {
-            bool expected = true;
-            bool actual = false;
+            Category category = _incomeCategory;
+            Dictionary<string, string> ruleSet = new Dictionary<string, string>();
+            ruleSet.Add("name", "required");
 
+            bool expected = false;
+            bool actual = _validator.Validate(ruleSet, category);
 
             Assert.AreEqual(expected, actual);
         }
