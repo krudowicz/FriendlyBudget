@@ -62,7 +62,7 @@ namespace FriendlyBudget.LocalClient.Tests.ComponentTests
         public void FamilyMember_Is_Valid()
         {
             FamilyMember familyMember = _familyMember;
-            ValidationRule rule = new ValidationRule("name", "required");
+            ValidationRule rule = new ValidationRule("FirstName", "required");
 
             bool expected = true;
             bool actual = _validator.Validate(rule, familyMember);

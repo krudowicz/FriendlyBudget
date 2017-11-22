@@ -13,8 +13,7 @@ namespace FriendlyBudget.LocalClient.Components.Core.Abstraction
 
         protected virtual void TryValidate()
         {
-
-            
+            throw new NotImplementedException();   
         }
     }
 }

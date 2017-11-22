@@ -21,7 +21,7 @@ namespace FriendlyBudget.LocalClient.Components.Validation
 
         public Validator()
         {
-            
+            _ruleSet = new Dictionary<string, string>();
         }
 
         public bool Validate(string entityType, T entity)
@@ -57,8 +57,8 @@ namespace FriendlyBudget.LocalClient.Components.Validation
 
             if(ruleSetEntities.Count == 1)
             {
-                string ruleName = ruleSetEntities[1].Name;
-                string ruleContent = ruleSetEntities[1].Content;
+                string ruleName = ruleSetEntities[0].Name;
+                string ruleContent = ruleSetEntities[0].Content;
                 _ruleSet.Add(ruleName, ruleContent);
             }
 
@@ -81,9 +81,9 @@ namespace FriendlyBudget.LocalClient.Components.Validation
             {
                 bool valid = CheckValidity(entity);
 
-                if (!valid)
+                if(valid == true)
                 {
-                    return false;
+
                 }
             }
 
@@ -94,15 +94,18 @@ namespace FriendlyBudget.LocalClient.Components.Validation
         {
             bool result = false;
 
-            Dictionary<string, object> entityProperties = entity.GetType().GetProperties().ToDictionary(objInfo => objInfo.Name, objInfo => objInfo.GetValue(entity, null));
+            Dictionary<string, string> entityProperties = entity.GetType().GetProperties().ToDictionary(x => x.Name, x => x.GetValue(entity)?.ToString() ?? string.Empty);
 
-            foreach(KeyValuePair<string, string> rule in _ruleSet)
+            foreach (KeyValuePair<string, string> rule in _ruleSet)
             {
-                if (string.Equals(rule.Value, "required"))
+                foreach(KeyValuePair<string, string> entityProperty in entityProperties)
                 {
-                    if (!string.IsNullOrWhiteSpace(entityProperties[rule.Value].ToString()))
+                    if(string.Equals(rule.Key.ToLower(), entityProperty.Key.ToLower()))
                     {
-                        result = true;
+                        if(string.Equals(rule.Value.ToLower(), "required") && !string.IsNullOrWhiteSpace(entityProperty.Value))
+                        {
+                            result = true;
+                        }
                     }
                 }
             }
