@@ -18,7 +18,7 @@ namespace FriendlyBudget.LocalClient.Tests.ComponentTests
         private Category _expenditureCategory;
 
         [SetUp]
-        public void SetUp()
+        public void Init()
         {
             _validator = new Validator<DataObject>();
             _familyMember = new FamilyMember();
@@ -28,6 +28,7 @@ namespace FriendlyBudget.LocalClient.Tests.ComponentTests
             _expenditureCategory = new Category();
 
             _familyMember.FirstName = "Adam";
+            _familyMember.LastName = "";
 
             _expenditureCategory.Name = "Jedzenie";
             _incomeCategory.Name = "";
@@ -61,9 +62,7 @@ namespace FriendlyBudget.LocalClient.Tests.ComponentTests
         public void FamilyMember_Is_Valid()
         {
             FamilyMember familyMember = _familyMember;
-            ValidationRule rule = new ValidationRule();
-            rule.Name = "name";
-            rule.Content = "required";
+            ValidationRule rule = new ValidationRule("name", "required");
 
             bool expected = true;
             bool actual = _validator.Validate(rule, familyMember);

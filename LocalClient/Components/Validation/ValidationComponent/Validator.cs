@@ -37,6 +37,7 @@ namespace FriendlyBudget.LocalClient.Components.Validation
         public bool Validate(ValidationRule rule, T entity)
         {
             ParseValidationRules(rule);
+            return ValidateInternal(entity);
 
         }
 
@@ -78,7 +79,7 @@ namespace FriendlyBudget.LocalClient.Components.Validation
 
             foreach(KeyValuePair<string, string> rule in _ruleSet)
             {
-                bool valid = CheckValidity(rule, entity);
+                bool valid = CheckValidity(entity);
 
                 if (!valid)
                 {
@@ -95,7 +96,7 @@ namespace FriendlyBudget.LocalClient.Components.Validation
 
             Dictionary<string, object> entityProperties = entity.GetType().GetProperties().ToDictionary(objInfo => objInfo.Name, objInfo => objInfo.GetValue(entity, null));
 
-            foreach(Dictionary<string, string> rule in _ruleSet)
+            foreach(KeyValuePair<string, string> rule in _ruleSet)
             {
                 if (string.Equals(rule.Value, "required"))
                 {
