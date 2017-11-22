@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using NUnit.Framework;
 using FriendlyBudget.LocalClient.Components.Validation;
 using FriendlyBudget.LocalClient.Components.DAL.DTO;
 using FriendlyBudget.LocalClient.Components.Core.Abstraction;
+using NUnit.Framework;
 
 namespace FriendlyBudget.LocalClient.Tests.ComponentTests
 {
