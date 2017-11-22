@@ -36,7 +36,8 @@ namespace FriendlyBudget.LocalClient.Components.Validation
 
         public bool Validate(ValidationRule rule, T entity)
         {
-            throw new NotImplementedException(); 
+            ParseValidationRules(rule);
+
         }
 
         private void ParseValidationRules(ValidationRule rule)
@@ -73,7 +74,39 @@ namespace FriendlyBudget.LocalClient.Components.Validation
 
         private bool ValidateInternal(T entity)
         {
-            throw new NotImplementedException();
+            bool result = false;
+
+            foreach(KeyValuePair<string, string> rule in _ruleSet)
+            {
+                bool valid = CheckValidity(rule, entity);
+
+                if (!valid)
+                {
+                    return false;
+                }
+            }
+
+            return result;
+        }
+
+        private bool CheckValidity(T entity)
+        {
+            bool result = false;
+
+            Dictionary<string, object> entityProperties = entity.GetType().GetProperties().ToDictionary(objInfo => objInfo.Name, objInfo => objInfo.GetValue(entity, null));
+
+            foreach(Dictionary<string, string> rule in _ruleSet)
+            {
+                if (string.Equals(rule.Value, "required"))
+                {
+                    if (!string.IsNullOrWhiteSpace(entityProperties[rule.Value].ToString()))
+                    {
+                        result = true;
+                    }
+                }
+            }
+
+            return result;
         }
     }
 }
