@@ -12,7 +12,6 @@ namespace FriendlyBudget.LocalClient.Components.Validation
     public class Validator<T> : ValidatorCore<T>, IValidator<T>
     {
         private bool _isValid = false;
-        private List<ValidationRule> _ruleSetEntities;
 
         public bool IsValid
         {
@@ -22,29 +21,10 @@ namespace FriendlyBudget.LocalClient.Components.Validation
 
         public Validator()
         {
-            _ruleSetEntities = new List<ValidationRule>();
-        }
-
-        public bool Validate(T entity)
-        {
-            throw new NotImplementedException();
+            
         }
 
         public bool Validate(string entityType, T entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool Validate(Dictionary<string, string> ruleSet, T entity)
-        {
-            ParseValidationRules(ruleSet);
-
-            bool result = ValidateInternal(entity);
-
-            return result;
-        }
-
-        public bool Validate(string field, string rule, T entity)
         {
             throw new NotImplementedException();
         }
@@ -59,45 +39,30 @@ namespace FriendlyBudget.LocalClient.Components.Validation
             throw new NotImplementedException(); 
         }
 
-        private void ParseValidationRules(Dictionary<string, string> ruleSet)
-        {
-            foreach(KeyValuePair<string, string> rule in ruleSet)
-            {
-                string name = rule.Key;
-                string content = rule.Value;
-                ValidationRule ruleEntity = new ValidationRule(name, content);
-                _ruleSetEntities.Add(ruleEntity);
-            }
-        }
-
-        private void ParseValidationRules(string field, string rule)
-        {
-            ValidationRule ruleEntity = new ValidationRule(field, rule);
-            _ruleSetEntities.Add(ruleEntity);
-        }
-
         private void ParseValidationRules(ValidationRule rule)
         {
-            _ruleSetEntities.Add(rule);
+            string ruleName = rule.Name;
+            string ruleContent = rule.Content;
+            _ruleSet.Add(ruleName, ruleContent);
         }
 
-        private void ParseValidationRules()
+        private void ParseValidationRules(List<ValidationRule> ruleSetEntities)
         {
-            if(_ruleSetEntities.Count == 0 || _ruleSetEntities == null)
+            if(ruleSetEntities.Count == 0 || ruleSetEntities == null)
             {
                 return;
             }
 
-            if(_ruleSetEntities.Count == 1)
+            if(ruleSetEntities.Count == 1)
             {
-                string ruleName = _ruleSetEntities[1].Name;
-                string ruleContent = _ruleSetEntities[1].Content;
+                string ruleName = ruleSetEntities[1].Name;
+                string ruleContent = ruleSetEntities[1].Content;
                 _ruleSet.Add(ruleName, ruleContent);
             }
 
-            if(_ruleSetEntities.Count > 1)
+            if(ruleSetEntities.Count > 1)
             {
-                foreach(ValidationRule rule in _ruleSetEntities)
+                foreach(ValidationRule rule in ruleSetEntities)
                 {
                     string ruleName = rule.Name;
                     string ruleContent = rule.Content;

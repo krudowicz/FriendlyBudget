@@ -10,7 +10,5 @@ namespace FriendlyBudget.LocalClient.Components.Core.Interfaces
     {
         bool IsValid { get; set; }
         bool Validate(string entityType, T entity);
-        bool Validate(Dictionary<string, string> ruleSet, T entity);
-        bool Validate(string field, string rule, T entity);
     }
 }

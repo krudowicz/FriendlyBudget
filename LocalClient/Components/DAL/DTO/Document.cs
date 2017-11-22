@@ -13,7 +13,6 @@ namespace FriendlyBudget.LocalClient.Components.DAL.DTO
     /// </summary>
     public class Document : DataObject
     {
-        public ulong Id { get; set; }
         public string Name { get; set; }
         public string Type { get; set; }
         public FamilyMember FamilyMember { get; set; }

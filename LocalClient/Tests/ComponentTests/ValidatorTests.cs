@@ -61,11 +61,12 @@ namespace FriendlyBudget.LocalClient.Tests.ComponentTests
         public void FamilyMember_Is_Valid()
         {
             FamilyMember familyMember = _familyMember;
-            Dictionary<string, string> ruleSet = new Dictionary<string, string>();
-            ruleSet.Add("name", "required");
+            ValidationRule rule = new ValidationRule();
+            rule.Name = "name";
+            rule.Content = "required";
 
             bool expected = true;
-            bool actual = _validator.Validate(ruleSet, familyMember);
+            bool actual = _validator.Validate(rule, familyMember);
 
             Assert.AreEqual(expected, actual);
         }
@@ -74,16 +75,15 @@ namespace FriendlyBudget.LocalClient.Tests.ComponentTests
         public void Income_Is_Valid()
         {
             Income income = _income;
-            Dictionary<string, string> ruleSet = new Dictionary<string, string>();
-            ruleSet.Add("name", "required");
-            ruleSet.Add("amount", "required");
-            ruleSet.Add("category", "required");
-            ruleSet.Add("person", "required");
-            ruleSet.Add("date", "required");
-
+            List<ValidationRule> rules = new List<ValidationRule>();
+            rules.Add(new ValidationRule("name", "required"));
+            rules.Add(new ValidationRule("amount", "required"));
+            rules.Add(new ValidationRule("category", "required"));
+            rules.Add(new ValidationRule("person", "required"));
+            rules.Add(new ValidationRule("date", "required"));
+            
             bool expected = true;
-            bool actual = _validator.Validate(ruleSet, income);
-
+            bool actual = _validator.Validate(rules, income);
 
             Assert.AreEqual(expected, actual);
         }
@@ -92,15 +92,15 @@ namespace FriendlyBudget.LocalClient.Tests.ComponentTests
         public void Expenditure_Is_Invalid()
         {
             Expenditure expenditure = _expenditure;
-            Dictionary<string, string> ruleSet = new Dictionary<string, string>();
-            ruleSet.Add("name", "required");
-            ruleSet.Add("amount", "required");
-            ruleSet.Add("category", "required");
-            ruleSet.Add("person", "required");
-            ruleSet.Add("date", "required");
+            List<ValidationRule> rules = new List<ValidationRule>();
+            rules.Add(new ValidationRule("name", "required"));
+            rules.Add(new ValidationRule("amount", "required"));
+            rules.Add(new ValidationRule("category", "required"));
+            rules.Add(new ValidationRule("person", "required"));
+            rules.Add(new ValidationRule("date", "required"));
 
             bool expected = false;
-            bool actual = _validator.Validate(ruleSet, expenditure);
+            bool actual = _validator.Validate(rules, expenditure);
 
             Assert.AreEqual(expected, actual);
         }
@@ -109,11 +109,10 @@ namespace FriendlyBudget.LocalClient.Tests.ComponentTests
         public void Category_Is_Valid()
         {
             Category category = _expenditureCategory;
-            Dictionary<string, string> ruleSet = new Dictionary<string, string>();
-            ruleSet.Add("name", "required");
+            ValidationRule rule = new ValidationRule("name", "required");
 
             bool expected = true;
-            bool actual = _validator.Validate(ruleSet, category);
+            bool actual = _validator.Validate(rule, category);
 
 
             Assert.AreEqual(expected, actual);
@@ -123,11 +122,10 @@ namespace FriendlyBudget.LocalClient.Tests.ComponentTests
         public void Category_Is_Invalid()
         {
             Category category = _incomeCategory;
-            Dictionary<string, string> ruleSet = new Dictionary<string, string>();
-            ruleSet.Add("name", "required");
+            ValidationRule rule = new ValidationRule("name", "required");
 
             bool expected = false;
-            bool actual = _validator.Validate(ruleSet, category);
+            bool actual = _validator.Validate(rule, category);
 
             Assert.AreEqual(expected, actual);
         }
