@@ -31,7 +31,8 @@ namespace FriendlyBudget.LocalClient.Components.Validation
 
         public bool Validate(List<ValidationRule> ruleSet, T entity)
         {
-            throw new NotImplementedException();
+            ParseValidationRules(ruleSet);
+            return ValidateInternal(entity);
         }
 
         public bool Validate(ValidationRule rule, T entity)
@@ -83,7 +84,7 @@ namespace FriendlyBudget.LocalClient.Components.Validation
 
                 if(valid == true)
                 {
-
+                    result = true;
                 }
             }
 
@@ -94,17 +95,20 @@ namespace FriendlyBudget.LocalClient.Components.Validation
         {
             bool result = false;
 
-            Dictionary<string, string> entityProperties = entity.GetType().GetProperties().ToDictionary(x => x.Name, x => x.GetValue(entity)?.ToString() ?? string.Empty);
+            Dictionary<string, object> entityProperties = entity.GetType().GetProperties().ToDictionary(x => x.Name, x => x.GetValue(entity));
 
             foreach (KeyValuePair<string, string> rule in _ruleSet)
             {
-                foreach(KeyValuePair<string, string> entityProperty in entityProperties)
+                foreach(KeyValuePair<string, object> entityProperty in entityProperties)
                 {
                     if(string.Equals(rule.Key.ToLower(), entityProperty.Key.ToLower()))
                     {
-                        if(string.Equals(rule.Value.ToLower(), "required") && !string.IsNullOrWhiteSpace(entityProperty.Value))
+                        if(string.Equals(rule.Value.ToLower(), "required") && !string.IsNullOrWhiteSpace(entityProperty.Value.ToString()) && entityProperty.Value != null)
                         {
                             result = true;
+                        } else
+                        {
+                            return false;
                         }
                     }
                 }
