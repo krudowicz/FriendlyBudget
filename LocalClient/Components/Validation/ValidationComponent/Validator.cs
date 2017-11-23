@@ -101,9 +101,9 @@ namespace FriendlyBudget.LocalClient.Components.Validation
             {
                 foreach(KeyValuePair<string, object> entityProperty in entityProperties)
                 {
-                    if(string.Equals(rule.Key.ToLower(), entityProperty.Key.ToLower()))
+                    if(string.Equals(rule.Key.ToLower(), entityProperty.Key.ToLower()) && string.Equals(rule.Value.ToLower(), "required"))
                     {
-                        if(string.Equals(rule.Value.ToLower(), "required") && !string.IsNullOrWhiteSpace(entityProperty.Value.ToString()) && entityProperty.Value != null)
+                        if(!string.IsNullOrWhiteSpace(entityProperty.Value.ToString()) && entityProperty.Value != null)
                         {
                             result = true;
                         } else

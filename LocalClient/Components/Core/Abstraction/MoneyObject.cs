@@ -11,7 +11,7 @@ namespace FriendlyBudget.LocalClient.Components.Core.Abstraction
         public string Name { get; set; }
         public string Description { get; set; }
         public decimal Amount { get; set; }
-        public DateTime Date { get; set; }
+        public string Date { get; set; }
         public bool Constant { get; set; }
         public Person Person { get; set; }
     }
