@@ -45,6 +45,7 @@ namespace FriendlyBudget.LocalClient.Tests.ComponentTests
             _expenditure.Category = _expenditureCategory;
             _expenditure.Person = _familyMember;
             _expenditure.Constant = false;
+            _expenditure.Date = "";
         } 
 
         [TearDown]
@@ -106,70 +107,70 @@ namespace FriendlyBudget.LocalClient.Tests.ComponentTests
 
         #region Expenditure Sub-tests
 
-        [Test]
-        public void _SUB_Expenditure_Name_Is_Valid()
-        {
-            Expenditure expenditure = _expenditure;
-            List<ValidationRule> rules = new List<ValidationRule>();
-            rules.Add(new ValidationRule("name", "required"));
+        //[Test]
+        //public void _SUB_Expenditure_Name_Is_Valid()
+        //{
+        //    Expenditure expenditure = _expenditure;
+        //    List<ValidationRule> rules = new List<ValidationRule>();
+        //    rules.Add(new ValidationRule("name", "required"));
 
-            bool expected = true;
-            bool actual = _validator.Validate(rules, expenditure);
+        //    bool expected = true;
+        //    bool actual = _validator.Validate(rules, expenditure);
 
-            Assert.AreEqual(expected, actual);
-        }
+        //    Assert.AreEqual(expected, actual);
+        //}
 
-        [Test]
-        public void _SUB_Expenditure_Amount_Is_Valid()
-        {
-            Expenditure expenditure = _expenditure;
-            List<ValidationRule> rules = new List<ValidationRule>();
-            rules.Add(new ValidationRule("amount", "required"));
+        //[Test]
+        //public void _SUB_Expenditure_Amount_Is_Valid()
+        //{
+        //    Expenditure expenditure = _expenditure;
+        //    List<ValidationRule> rules = new List<ValidationRule>();
+        //    rules.Add(new ValidationRule("amount", "required"));
 
-            bool expected = true;
-            bool actual = _validator.Validate(rules, expenditure);
+        //    bool expected = true;
+        //    bool actual = _validator.Validate(rules, expenditure);
 
-            Assert.AreEqual(expected, actual);
-        }
+        //    Assert.AreEqual(expected, actual);
+        //}
 
-        [Test]
-        public void _SUB_Expenditure_Category_Is_Valid()
-        {
-            Expenditure expenditure = _expenditure;
-            List<ValidationRule> rules = new List<ValidationRule>();
-            rules.Add(new ValidationRule("category", "required"));
+        //[Test]
+        //public void _SUB_Expenditure_Category_Is_Valid()
+        //{
+        //    Expenditure expenditure = _expenditure;
+        //    List<ValidationRule> rules = new List<ValidationRule>();
+        //    rules.Add(new ValidationRule("category", "required"));
 
-            bool expected = true;
-            bool actual = _validator.Validate(rules, expenditure);
+        //    bool expected = true;
+        //    bool actual = _validator.Validate(rules, expenditure);
 
-            Assert.AreEqual(expected, actual);
-        }
+        //    Assert.AreEqual(expected, actual);
+        //}
 
-        [Test]
-        public void _SUB_Expenditure_Person_Is_Valid()
-        {
-            Expenditure expenditure = _expenditure;
-            List<ValidationRule> rules = new List<ValidationRule>();
-            rules.Add(new ValidationRule("person", "required"));
+        //[Test]
+        //public void _SUB_Expenditure_Person_Is_Valid()
+        //{
+        //    Expenditure expenditure = _expenditure;
+        //    List<ValidationRule> rules = new List<ValidationRule>();
+        //    rules.Add(new ValidationRule("person", "required"));
 
 
-            bool expected = true;
-            bool actual = _validator.Validate(rules, expenditure);
+        //    bool expected = true;
+        //    bool actual = _validator.Validate(rules, expenditure);
 
-            Assert.AreEqual(expected, actual);
-        }
+        //    Assert.AreEqual(expected, actual);
+        //}
 
-        [Test]
-        public void _SUB_Expenditure_Date_Is_Invalid()
-        {
-            Expenditure expenditure = _expenditure;
-            ValidationRule rule = new ValidationRule("date", "required");
+        //[Test]
+        //public void _SUB_Expenditure_Date_Is_Invalid()
+        //{
+        //    Expenditure expenditure = _expenditure;
+        //    ValidationRule rule = new ValidationRule("date", "required");
 
-            bool expected = false;
-            bool actual = _validator.Validate(rule, expenditure);
+        //    bool expected = false;
+        //    bool actual = _validator.Validate(rule, expenditure);
 
-            Assert.AreEqual(expected, actual);
-        }
+        //    Assert.AreEqual(expected, actual);
+        //}
 
         #endregion
 

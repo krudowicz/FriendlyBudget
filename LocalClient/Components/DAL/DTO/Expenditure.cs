@@ -11,7 +11,7 @@ namespace FriendlyBudget.LocalClient.Components.DAL.DTO
     {
         public Category Category { get; set; }
 
-        public Expenditure()
+        public Expenditure() : base()
         {
             Category = null;
         }

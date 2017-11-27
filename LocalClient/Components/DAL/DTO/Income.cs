@@ -10,5 +10,10 @@ namespace FriendlyBudget.LocalClient.Components.DAL.DTO
     public class Income : MoneyObject
     {
         public Category Category { get; set; }
+
+        public Income() :base()
+        {
+            Category = null;
+        }
     }
 }
