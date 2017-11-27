@@ -32,12 +32,12 @@ namespace FriendlyBudget.LocalClient.Plugins.PdfExporterPlugin
 
         #region Private Methods
 
-        public void PrepareData()
+        private void PrepareData()
         {
             throw new NotImplementedException();
         }
 
-        public bool CheckSuccess()
+        private bool CheckSuccess()
         {
             throw new NotImplementedException();
         }

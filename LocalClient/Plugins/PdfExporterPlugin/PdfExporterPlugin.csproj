@@ -56,5 +56,11 @@
   <ItemGroup>
     <Folder Include="Helpers\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Components\Core\Interfaces\Interfaces.csproj">
+      <Project>{7B410779-FD59-4A18-8103-F5C34009BE1F}</Project>
+      <Name>Interfaces</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
