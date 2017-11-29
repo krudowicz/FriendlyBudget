@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace FriendlyBudget.LocalClient.Components.DAL.Repositories
 {
-    class UserRepository : IRepository<User>
+    public class UserRepository : IRepository<User>
     {
         public List<User> Items { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 

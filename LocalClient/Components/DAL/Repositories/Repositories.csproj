@@ -53,6 +53,7 @@
     <Compile Include="FamilyMemberRepository.cs" />
     <Compile Include="IncomeRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Core\Abstraction\Abstraction.csproj">

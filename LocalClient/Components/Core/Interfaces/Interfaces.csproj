@@ -40,12 +40,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IAuthenticator.cs" />
+    <Compile Include="IAuthorizer.cs" />
     <Compile Include="IExporter.cs" />
     <Compile Include="IImporter.cs" />
     <Compile Include="IReader.cs" />
     <Compile Include="IRepository.cs" />
     <Compile Include="IValidator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Abstraction\Abstraction.csproj">
+      <Project>{6CCBC3E6-FDBB-4154-900B-36C4E351CD91}</Project>
+      <Name>Abstraction</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
