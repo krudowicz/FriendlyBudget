@@ -6,7 +6,6 @@ using System.Text;
 using System.Threading.Tasks;
 using FriendlyBudget.LocalClient.Components.DAL.DTO;
 using FriendlyBudget.LocalClient.Components.DAL.Repositories;
-using System.Security.Cryptography;
 
 namespace FriendlyBudget.LocalClient.Components.AuthenticationComponent
 {
@@ -42,9 +41,12 @@ namespace FriendlyBudget.LocalClient.Components.AuthenticationComponent
             string login = user.Login;
             User userFromRepository = _repository.GetByLogin(login);
 
-            if (true)
+            string password = user.Password;
+            string passwordFromRepository = userFromRepository.Password;
+
+            if (string.Equals(password, passwordFromRepository))
             {
-                //TODO: Implement password check.
+                result = true;
             }
 
             return result;
