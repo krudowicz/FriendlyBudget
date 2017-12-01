@@ -22,6 +22,21 @@ namespace FriendlyBudget.LocalClient.Components.DAL.Repositories
             throw new NotImplementedException();
         }
 
+        public User GetByEmail(string email)
+        {
+            throw new NotImplementedException();
+        }
+
+        public User GetByLogin(string login, out bool found)
+        {
+            throw new NotImplementedException();
+        }
+
+        public User GetByLogin(string login)
+        {
+            throw new NotImplementedException();
+        }
+
         public IEnumerable<User> GetByQuery(string query)
         {
             throw new NotImplementedException();
