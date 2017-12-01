@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Security.Cryptography;
 
 namespace FriendlyBudget.LocalClient.Components.AuthenticationComponent.Helpers
 {
@@ -11,55 +12,76 @@ namespace FriendlyBudget.LocalClient.Components.AuthenticationComponent.Helpers
 
         public static string Encode(string password)
         {
-            throw new NotImplementedException();
+            string encryptedPassword = EncodeInternal(password);
+            return encryptedPassword;
         }
 
         public static string Encode(string password, string algorithm)
         {
-            throw new NotImplementedException();
+            string encryptedPassword = EncodeInternal(password, algorithm);
+            return encryptedPassword;
         }
 
-        private static string EncodeInternal(string password, string algorithm)
+        private static string EncodeInternal(string password, string algorithm = "SHA512")
         {
-            string encodedPassword = string.Empty;
+            string encryptedPassword = string.Empty;
 
             switch(algorithm)
             {
                 case "SHA256":
-                    encodedPassword = EncodeSHA256(password);
+                    encryptedPassword = EncodeSHA256(password);
                     break;
                 case "SHA384":
-                    encodedPassword = EncodeSHA384(password);
+                    encryptedPassword = EncodeSHA384(password);
                     break;
                 case "SHA512":
-                    encodedPassword = EncodeSHA512(password);
-                    break;
-                case "AES":
-                    encodedPassword = EncodeAES(password);
+                    encryptedPassword = EncodeSHA512(password);
                     break;
             }
 
-            return encodedPassword;
+            return encryptedPassword;
         }
 
         private static string EncodeSHA256(string password)
         {
-            throw new NotImplementedException();
+            string encryptedPassword = string.Empty;
+
+            SHA256CryptoServiceProvider provider = new SHA256CryptoServiceProvider();
+            UnicodeEncoding encoding = new UnicodeEncoding();
+
+            byte[] encodedPassword = encoding.GetBytes(password);
+
+            encryptedPassword = provider.ComputeHash(encodedPassword).ToString();
+
+            return encryptedPassword;
         }
 
         private static string EncodeSHA384(string password)
         {
-            throw new NotImplementedException();
+            string encryptedPassword = string.Empty;
+
+            SHA384CryptoServiceProvider provider = new SHA384CryptoServiceProvider();
+            UnicodeEncoding encoding = new UnicodeEncoding();
+
+            byte[] encodedPassword = encoding.GetBytes(password);
+
+            encryptedPassword = provider.ComputeHash(encodedPassword).ToString();
+
+            return encryptedPassword;
         }
 
         private static string EncodeSHA512(string password)
         {
-            throw new NotImplementedException();
-        }
+            string encryptedPassword = string.Empty;
 
-        private static string EncodeAES(string password)
-        {
-            throw new NotImplementedException();
+            SHA512CryptoServiceProvider provider = new SHA512CryptoServiceProvider();
+            UnicodeEncoding encoding = new UnicodeEncoding();
+
+            byte[] encodedPassword = encoding.GetBytes(password);
+
+            encryptedPassword = provider.ComputeHash(encodedPassword).ToString();
+
+            return encryptedPassword;
         }
     }
 }
