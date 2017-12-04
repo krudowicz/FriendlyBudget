@@ -15,8 +15,12 @@ namespace FriendlyBudget.LocalClient.Components.Validation
         {
             bool result = false;
 
-            IRepository<User> userRepository = new UserRepository();
+            UserRepository userRepository = new UserRepository();
 
+            bool found = false;
+            userRepository.GetByLogin(login, out found);
+
+            result = found;
 
             return result;
         }
