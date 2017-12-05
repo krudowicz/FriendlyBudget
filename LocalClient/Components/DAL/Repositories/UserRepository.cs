@@ -49,24 +49,62 @@ namespace FriendlyBudget.LocalClient.Components.DAL.Repositories
             }
         }
 
-        public User GetByEmail(string email, bool found)
+        public User GetByEmail(string email, out bool found)
         {
-            throw new NotImplementedException();
+            found = false;
+
+            using(var context = new MainContext())
+            {
+                var query = (from u in context.Users
+                             where u.Email == email
+                             select u);
+
+                User user = query.FirstOrDefault();
+
+                if(user == null)
+                {
+                    return user;
+                }
+
+                found = true;
+                return user;
+            }
         }
 
         public User GetByEmail(string email)
         {
-            throw new NotImplementedException();
+            User user = GetByEmail(email, out bool found);
+
+            return user;
         }
 
         public User GetByLogin(string login, out bool found)
         {
-            throw new NotImplementedException();
+            found = false;
+
+            using (var context = new MainContext())
+            {
+                var query = (from u in context.Users
+                             where u.Login == login
+                             select u);
+
+                User user = query.FirstOrDefault();
+
+                if (user == null)
+                {
+                    return user;
+                }
+
+                found = true;
+                return user;
+            }
         }
 
         public User GetByLogin(string login)
         {
-            throw new NotImplementedException();
+            User user = GetByLogin(login, out bool found);
+
+            return user;
         }
 
         //TODO: Think about moving it to private section to hide implementation.
