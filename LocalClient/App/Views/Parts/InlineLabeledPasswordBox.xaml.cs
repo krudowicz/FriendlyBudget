@@ -24,5 +24,25 @@ namespace FriendlyBudget.LocalClient.App.Views.Parts
         {
             InitializeComponent();
         }
+
+        string label = "";
+        string textBox = "";
+
+        public string LabelContent
+        {
+            get { return label; }
+            set
+            {
+                label = value;
+            }
+        }
+        public string TextBox
+        {
+            get { return textBox; }
+            set
+            {
+                textBox = value;
+            }
+        }
     }
 }
