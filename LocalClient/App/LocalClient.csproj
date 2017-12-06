@@ -142,6 +142,10 @@
       <Project>{CE7BA4D1-F850-4232-A495-C2888EA96FBE}</Project>
       <Name>Commands</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Components\Core\Abstraction\Abstraction.csproj">
+      <Project>{6CCBC3E6-FDBB-4154-900B-36C4E351CD91}</Project>
+      <Name>Abstraction</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Components\DAL\DTO\DTO.csproj">
       <Project>{A7BB5EFA-A0E1-4BF1-BA1E-16032A04405D}</Project>
       <Name>DTO</Name>

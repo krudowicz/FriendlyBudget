@@ -6,8 +6,10 @@
              xmlns:local="clr-namespace:FriendlyBudget.LocalClient.App.Views"
              xmlns:ViewModels="clr-namespace:FriendlyBudget.LocalClient.App.ViewModels"
              xmlns:Parts="clr-namespace:FriendlyBudget.LocalClient.App.Views.Parts"
+             DataContext="{StaticResource LoginViewModel}"
              mc:Ignorable="d" 
              d:DesignHeight="768" d:DesignWidth="1024">
+    
     <Grid Background="#202020">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>
@@ -29,8 +31,8 @@
 
         <TextBlock Grid.Column="1" Foreground="#ff9800" VerticalAlignment="Center" HorizontalAlignment="Center" FontStyle="Italic" FontWeight="Bold" FontSize="24">FriendlyBudget</TextBlock>
 
-        <Parts:UnderLabeledTextBox Grid.Column="1" Grid.Row="3" LabelContent="Login/E-mail"></Parts:UnderLabeledTextBox>
-        <Parts:UnderLabeledPasswordBox Grid.Column="3" Grid.Row="3" LabelContent="Password"></Parts:UnderLabeledPasswordBox>
+        <Parts:UnderLabeledTextBox Grid.Column="1" Grid.Row="3" LabelContent="{Binding ViewModel.TextBoxLabel}"></Parts:UnderLabeledTextBox>
+        <Parts:UnderLabeledPasswordBox Grid.Column="3" Grid.Row="3" LabelContent="{Binding ViewModel.PasswordBoxLabel}"></Parts:UnderLabeledPasswordBox>
         
         <Button MinWidth ="60" MaxWidth="80" Height="20" Grid.Column="3" Grid.Row="4" Content="Log In" Foreground="#ff9800" Background="#202020" BorderThickness="1" BorderBrush="#ff9800" FontSize="10" FontWeight="Bold" VerticalAlignment="Top" Focusable="True"></Button>
     </Grid>

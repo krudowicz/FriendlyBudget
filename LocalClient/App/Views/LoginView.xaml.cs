@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FriendlyBudget.LocalClient.App.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,8 +21,13 @@ namespace FriendlyBudget.LocalClient.App.Views
     /// </summary>
     public partial class LoginView : UserControl
     {
+        private LoginViewModel _viewModel; 
+
+        public LoginViewModel ViewModel { get; set; }
+
         public LoginView()
         {
+            _viewModel = new LoginViewModel();
             InitializeComponent();
         }
     }
