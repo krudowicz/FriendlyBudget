@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace FriendlyBudget.LocalClient.App.View
+namespace FriendlyBudget.LocalClient.App.Views
 {
     /// <summary>
     /// Interaction logic for Login.xaml

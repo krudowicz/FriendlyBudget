@@ -19,7 +19,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculatorPlugin", "Plugins
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PdfExporterPlugin", "Plugins\PdfExporterPlugin\PdfExporterPlugin.csproj", "{D0120FA9-83C7-4134-9ADB-02095F548DB5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XmlParsrtPlugin", "Plugins\XmlParsingPlugin\XmlParsrtPlugin.csproj", "{75F1460F-702C-40A4-9C76-E4932BD53353}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XmlParserPlugin", "Plugins\XmlParsingPlugin\XmlParserPlugin.csproj", "{75F1460F-702C-40A4-9C76-E4932BD53353}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocalClient", "App\LocalClient.csproj", "{7F43A021-8799-4A63-A6D3-2CA29D4FABEB}"
 EndProject
@@ -48,6 +48,12 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticationComponent", "Components\Authentication\AuthenticationComponent\AuthenticationComponent.csproj", "{4C47F696-B412-4170-B874-F730D7C213DD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthorizationComponent", "Components\Authorization\AuthorizationComponent\AuthorizationComponent.csproj", "{51B6C6F7-C353-4A63-A402-08C6CF970190}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Commands", "Commands", "{32C16B17-2AA8-4E3F-A9C7-0C705229E925}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Controllers", "Controllers", "{FC3D0CEF-79FE-49CF-B388-8C9B36D8A396}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreControllers", "CoreControllers\CoreControllers.csproj", "{61ADC8A6-137D-43F6-8321-8DE77DC0C894}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -111,6 +117,10 @@ Global
 		{51B6C6F7-C353-4A63-A402-08C6CF970190}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{51B6C6F7-C353-4A63-A402-08C6CF970190}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{51B6C6F7-C353-4A63-A402-08C6CF970190}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61ADC8A6-137D-43F6-8321-8DE77DC0C894}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61ADC8A6-137D-43F6-8321-8DE77DC0C894}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61ADC8A6-137D-43F6-8321-8DE77DC0C894}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61ADC8A6-137D-43F6-8321-8DE77DC0C894}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -137,5 +147,8 @@ Global
 		{8C92CE22-382C-4AE4-A9C0-A9DC1F3B7183} = {F32C866C-E78E-40FB-8C8F-BCB1DDB24F8E}
 		{4C47F696-B412-4170-B874-F730D7C213DD} = {AC238CBD-8026-4F9A-8E19-5B519E2B6CF8}
 		{51B6C6F7-C353-4A63-A402-08C6CF970190} = {8C92CE22-382C-4AE4-A9C0-A9DC1F3B7183}
+		{32C16B17-2AA8-4E3F-A9C7-0C705229E925} = {F32C866C-E78E-40FB-8C8F-BCB1DDB24F8E}
+		{FC3D0CEF-79FE-49CF-B388-8C9B36D8A396} = {F32C866C-E78E-40FB-8C8F-BCB1DDB24F8E}
+		{61ADC8A6-137D-43F6-8321-8DE77DC0C894} = {FC3D0CEF-79FE-49CF-B388-8C9B36D8A396}
 	EndGlobalSection
 EndGlobal
