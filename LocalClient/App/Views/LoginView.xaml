@@ -1,0 +1,37 @@
+﻿<UserControl x:Class="FriendlyBudget.LocalClient.App.Views.LoginView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FriendlyBudget.LocalClient.App.Views"
+             xmlns:ViewModels="clr-namespace:FriendlyBudget.LocalClient.App.ViewModels"
+             xmlns:Parts="clr-namespace:FriendlyBudget.LocalClient.App.Views.Parts"
+             mc:Ignorable="d" 
+             d:DesignHeight="768" d:DesignWidth="1024">
+    <Grid Background="#202020">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition MinWidth="100" MaxWidth="200"></ColumnDefinition>
+            <ColumnDefinition MinWidth="20" MaxWidth="40"></ColumnDefinition>
+            <ColumnDefinition MinWidth="100" MaxWidth="200"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Column="1" Foreground="#ff9800" VerticalAlignment="Center" HorizontalAlignment="Center" FontStyle="Italic" FontWeight="Bold" FontSize="24">FriendlyBudget</TextBlock>
+
+        <Parts:UnderLabeledTextBox Grid.Column="1" Grid.Row="3" LocalLabel="Login/E-mail"></Parts:UnderLabeledTextBox>
+        <Parts:UnderLabeledTextBox Grid.Column="3" Grid.Row="3" LocalLabel="Password"></Parts:UnderLabeledTextBox>
+        
+        <Button MinWidth ="60" MaxWidth="80" Height="20" Grid.Column="3" Grid.Row="4" Content="Log In" Foreground="#ff9800" Background="#202020" BorderThickness="1" BorderBrush="#ff9800" FontSize="10" FontWeight="Bold" VerticalAlignment="Top" Focusable="True"></Button>
+    </Grid>
+</UserControl>

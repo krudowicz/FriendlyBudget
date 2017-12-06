@@ -13,17 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace LocalClient
+namespace FriendlyBudget.LocalClient.App.Views.Parts
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for UnderLabeledPasswordBox.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class UnderLabeledPasswordBox : UserControl
     {
-        public MainWindow()
+        public UnderLabeledPasswordBox()
         {
             InitializeComponent();
-            WindowState = WindowState.Maximized;
         }
     }
 }

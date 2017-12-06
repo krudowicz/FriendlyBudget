@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace FriendlyBudget.LocalClient.App.Views
 {
     /// <summary>
-    /// Interaction logic for Login.xaml
+    /// Interaction logic for LoginView.xaml
     /// </summary>
-    public partial class Login : UserControl
+    public partial class LoginView : UserControl
     {
-        public Login()
+        public LoginView()
         {
             InitializeComponent();
         }

@@ -13,17 +13,19 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace LocalClient
+namespace FriendlyBudget.LocalClient.App.Views.Parts
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for InlineLabeledTextBox.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class InlineLabeledTextBox : UserControl
     {
-        public MainWindow()
+        public InlineLabeledTextBox()
         {
             InitializeComponent();
-            WindowState = WindowState.Maximized;
         }
+
+        public string LocalLabel { get; set; }
+        public string LocalText { get; set; }
     }
 }
