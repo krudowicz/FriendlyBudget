@@ -16,33 +16,13 @@ using System.Windows.Shapes;
 namespace FriendlyBudget.LocalClient.App.Views.Parts
 {
     /// <summary>
-    /// Interaction logic for InlineLabeledTextBox.xaml
+    /// Interaction logic for LoginPanel.xaml
     /// </summary>
-    public partial class InlineLabeledTextBox : UserControl
+    public partial class LoginPanel : UserControl
     {
-        public InlineLabeledTextBox()
+        public LoginPanel()
         {
             InitializeComponent();
-        }
-
-        string label = "";
-        string textBox = "";
-
-        public string LabelContent
-        {
-            get { return label; }
-            set
-            {
-                label = value;
-            }
-        }
-        public string TextBox
-        {
-            get { return textBox; }
-            set
-            {
-                textBox = value;
-            }
         }
     }
 }

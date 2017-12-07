@@ -6,17 +6,18 @@
              xmlns:local="clr-namespace:FriendlyBudget.LocalClient.App.Views"
              xmlns:ViewModels="clr-namespace:FriendlyBudget.LocalClient.App.ViewModels"
              xmlns:Parts="clr-namespace:FriendlyBudget.LocalClient.App.Views.Parts"
-             DataContext="{StaticResource LoginViewModel}"
              mc:Ignorable="d" 
              d:DesignHeight="768" d:DesignWidth="1024">
-    
-    <Grid Background="#202020">
+
+    <Grid Background="#202020" DataContext="LoginViewModel">
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
             <ColumnDefinition MinWidth="100" MaxWidth="200"></ColumnDefinition>
             <ColumnDefinition MinWidth="20" MaxWidth="40"></ColumnDefinition>
             <ColumnDefinition MinWidth="100" MaxWidth="200"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="5"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
@@ -29,11 +30,12 @@
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Column="1" Foreground="#ff9800" VerticalAlignment="Center" HorizontalAlignment="Center" FontStyle="Italic" FontWeight="Bold" FontSize="24">FriendlyBudget</TextBlock>
-
-        <Parts:UnderLabeledTextBox Grid.Column="1" Grid.Row="3" LabelContent="{Binding ViewModel.TextBoxLabel}"></Parts:UnderLabeledTextBox>
-        <Parts:UnderLabeledPasswordBox Grid.Column="3" Grid.Row="3" LabelContent="{Binding ViewModel.PasswordBoxLabel}"></Parts:UnderLabeledPasswordBox>
+        <TextBlock Grid.Column="2" Foreground="#ff9800" VerticalAlignment="Center" HorizontalAlignment="Center" FontStyle="Italic" FontWeight="Bold" FontSize="24">FriendlyBudget</TextBlock>
+        <Line Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="3" Fill="#ff9800" Width="20" VerticalAlignment="Bottom" Margin="0 0 0 0" X1="0" X2="1080"></Line>
         
-        <Button MinWidth ="60" MaxWidth="80" Height="20" Grid.Column="3" Grid.Row="4" Content="Log In" Foreground="#ff9800" Background="#202020" BorderThickness="1" BorderBrush="#ff9800" FontSize="10" FontWeight="Bold" VerticalAlignment="Top" Focusable="True"></Button>
+        <Parts:LoginPanel Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="3" Grid.RowSpan="2"></Parts:LoginPanel>
+
+        <Rectangle Grid.Column="0" Grid.RowSpan="8" Fill="#303030"></Rectangle>
+        <Rectangle Grid.Column="6" Grid.RowSpan="8" Fill="#303030"></Rectangle>
     </Grid>
 </UserControl>

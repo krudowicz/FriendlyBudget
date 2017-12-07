@@ -21,13 +21,12 @@ namespace FriendlyBudget.LocalClient.App.Views
     /// </summary>
     public partial class LoginView : UserControl
     {
-        private LoginViewModel _viewModel; 
-
         public LoginViewModel ViewModel { get; set; }
 
         public LoginView()
         {
-            _viewModel = new LoginViewModel();
+
+            ViewModel = new LoginViewModel();
             InitializeComponent();
         }
     }

@@ -58,17 +58,8 @@
     <Compile Include="Views\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Parts\InlineLabeledPasswordBox.xaml.cs">
-      <DependentUpon>InlineLabeledPasswordBox.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Parts\InlineLabeledTextBox.xaml.cs">
-      <DependentUpon>InlineLabeledTextBox.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Parts\UnderLabeledPasswordBox.xaml.cs">
-      <DependentUpon>UnderLabeledPasswordBox.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Parts\UnderLabeledTextBox.xaml.cs">
-      <DependentUpon>UnderLabeledTextBox.xaml</DependentUpon>
+    <Compile Include="Views\Parts\LoginPanel.xaml.cs">
+      <DependentUpon>LoginPanel.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\RegisterView.xaml.cs">
       <DependentUpon>RegisterView.xaml</DependentUpon>
@@ -89,19 +80,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Parts\InlineLabeledPasswordBox.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Parts\InlineLabeledTextBox.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Parts\UnderLabeledPasswordBox.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Parts\UnderLabeledTextBox.xaml">
+    <Page Include="Views\Parts\LoginPanel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
