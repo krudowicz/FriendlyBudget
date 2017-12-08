@@ -10,76 +10,73 @@ namespace FriendlyBudget.LocalClient.Components.AuthenticationComponent.Helpers
     class PasswordEncoder
     {
 
-        public static string Encode(string password)
+        public static byte[] Encode(string password)
         {
-            string encryptedPassword = EncodeInternal(password);
+            byte[] encryptedPassword = EncodeInternal(password);
             return encryptedPassword;
         }
 
-        public static string Encode(string password, string algorithm)
+        public static byte[] Encode(string password, string algorithm)
         {
-            string encryptedPassword = EncodeInternal(password, algorithm);
+            byte[] encryptedPassword = EncodeInternal(password, algorithm);
             return encryptedPassword;
         }
 
-        private static string EncodeInternal(string password, string algorithm = "SHA512")
+        private static byte[] EncodeInternal(string password, string algorithm = "SHA512")
         {
-            string encryptedPassword = string.Empty;
+            
 
             switch(algorithm)
             {
                 case "SHA256":
-                    encryptedPassword = EncodeSHA256(password);
-                    break;
+                    return EncodeSHA256(password);
                 case "SHA384":
-                    encryptedPassword = EncodeSHA384(password);
-                    break;
+                    return EncodeSHA384(password);
                 case "SHA512":
-                    encryptedPassword = EncodeSHA512(password);
-                    break;
+                    return EncodeSHA512(password);
+                default:
+                    return null;
             }
-
-            return encryptedPassword;
         }
 
-        private static string EncodeSHA256(string password)
+        private static byte[] EncodeSHA256(string password)
         {
-            string encryptedPassword = string.Empty;
+            byte[] encryptedPassword;
 
             SHA256CryptoServiceProvider provider = new SHA256CryptoServiceProvider();
             UnicodeEncoding encoding = new UnicodeEncoding();
 
             byte[] encodedPassword = encoding.GetBytes(password);
 
-            encryptedPassword = provider.ComputeHash(encodedPassword).ToString();
+            encryptedPassword = provider.ComputeHash(encodedPassword);
 
             return encryptedPassword;
         }
 
-        private static string EncodeSHA384(string password)
+        private static byte[] EncodeSHA384(string password)
         {
-            string encryptedPassword = string.Empty;
+            byte[] encryptedPassword;
 
             SHA384CryptoServiceProvider provider = new SHA384CryptoServiceProvider();
             UnicodeEncoding encoding = new UnicodeEncoding();
 
             byte[] encodedPassword = encoding.GetBytes(password);
 
-            encryptedPassword = provider.ComputeHash(encodedPassword).ToString();
+            encryptedPassword = provider.ComputeHash(encodedPassword);
 
             return encryptedPassword;
         }
 
-        private static string EncodeSHA512(string password)
+        private static byte[] EncodeSHA512(string password)
         {
-            string encryptedPassword = string.Empty;
+            byte[] encryptedPassword;
 
             SHA512CryptoServiceProvider provider = new SHA512CryptoServiceProvider();
             UnicodeEncoding encoding = new UnicodeEncoding();
 
             byte[] encodedPassword = encoding.GetBytes(password);
 
-            encryptedPassword = provider.ComputeHash(encodedPassword).ToString();
+            encryptedPassword = provider.ComputeHash(encodedPassword);
 
             return encryptedPassword;
         }

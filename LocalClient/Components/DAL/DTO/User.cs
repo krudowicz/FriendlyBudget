@@ -11,7 +11,7 @@ namespace FriendlyBudget.LocalClient.Components.DAL.DTO
     {
         public string Login { get; set; }
         public string Email { get; set; }
-        public string Password { get; set; }
+        public byte[] Password { get; set; }
         public string PermissionLevel { get; set; } //crude prototype before I implement proper permission system
     }
 }

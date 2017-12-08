@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using FriendlyBudget.LocalClient.Components.DAL.DTO;
 using FriendlyBudget.LocalClient.Components.DAL.Repositories;
+using FriendlyBudget.LocalClient.Components.AuthenticationComponent.Helpers;
 
 namespace FriendlyBudget.LocalClient.Components.AuthenticationComponent
 {
@@ -34,6 +35,7 @@ namespace FriendlyBudget.LocalClient.Components.AuthenticationComponent
             return result;
         }
 
+        //TODO: It is probably bugged and needs different solution to allow comparing passwords
         private bool CheckPassword(User user)
         {
             bool result = false;
@@ -41,10 +43,12 @@ namespace FriendlyBudget.LocalClient.Components.AuthenticationComponent
             string login = user.Login;
             User userFromRepository = _repository.GetByLogin(login);
 
-            string password = user.Password;
-            string passwordFromRepository = userFromRepository.Password;
+            var providedPassword = PasswordEncoder.Encode(user.Password);
+            var actualPassword = userFromRepository.Password;
 
-            if (string.Equals(password, passwordFromRepository))
+            bool passwordsMatch = providedPassword == actualPassword;
+
+            if (passwordsMatch)
             {
                 result = true;
             }
@@ -56,15 +60,16 @@ namespace FriendlyBudget.LocalClient.Components.AuthenticationComponent
         {
             string login = user.Login;
 
-            User userFromRepository = _repository.GetByLogin(login);
+            User userFromRepository = _repository.GetByLogin(login, out bool userFound);
 
             bool authenticated = false;
 
-            if(CheckLogin(user))
+            if(userFound)
             {
-                if(CheckPassword(user))
+                bool passwordMatches = CheckPassword(user);
+
+                if(passwordMatches)
                 {
-                    CheckPassword(user);
                     authenticated = true;
                 }
             }
