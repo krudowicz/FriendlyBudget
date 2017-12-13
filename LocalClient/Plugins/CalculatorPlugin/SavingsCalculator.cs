@@ -20,7 +20,7 @@ namespace FriendlyBudget.LocalClient.Plugins.CalculatorPlugin
 
         public SavingsCalculator(FamilyMember familyMember)
         {
-
+            _familyMember = familyMember;
         }
 
         #endregion
