@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26228.4
+VisualStudioVersion = 15.0.26228.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Plugins", "Plugins", "{D5D0C562-1E66-4BCC-99DE-0AD1C68F80D2}"
 EndProject
@@ -11,7 +11,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Database", "Components\DAL\Database\Database.csproj", "{91CCADE0-79BF-49B7-A15F-76FAE5087C38}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DTO", "Components\DAL\DTO\DTO.csproj", "{A7BB5EFA-A0E1-4BF1-BA1E-16032A04405D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Components\DAL\DTO\Entities.csproj", "{A7BB5EFA-A0E1-4BF1-BA1E-16032A04405D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repositories", "Components\DAL\Repositories\Repositories.csproj", "{46F33E41-41D6-4A01-84A8-F601E0822596}"
 EndProject

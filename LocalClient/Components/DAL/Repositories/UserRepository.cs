@@ -1,5 +1,5 @@
 ﻿using FriendlyBudget.LocalClient.Components.Core.Interfaces;
-using FriendlyBudget.LocalClient.Components.DAL.DTO;
+using FriendlyBudget.LocalClient.Components.DAL.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;

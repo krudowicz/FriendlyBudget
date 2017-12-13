@@ -50,9 +50,9 @@
       <Project>{7B410779-FD59-4A18-8103-F5C34009BE1F}</Project>
       <Name>Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\DAL\DTO\DTO.csproj">
+    <ProjectReference Include="..\..\DAL\DTO\Entities.csproj">
       <Project>{a7bb5efa-a0e1-4bf1-ba1e-16032a04405d}</Project>
-      <Name>DTO</Name>
+      <Name>Entities</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\DAL\Repositories\Repositories.csproj">
       <Project>{46F33E41-41D6-4A01-84A8-F601E0822596}</Project>

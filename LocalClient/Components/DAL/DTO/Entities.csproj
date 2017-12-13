@@ -7,8 +7,8 @@
     <ProjectGuid>{A7BB5EFA-A0E1-4BF1-BA1E-16032A04405D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FriendlyBudget.LocalClient.Components.DAL.DTO</RootNamespace>
-    <AssemblyName>FriendlyBudget.LocalClient.Components.DAL.DTO</AssemblyName>
+    <RootNamespace>FriendlyBudget.LocalClient.Components.DAL.Entities</RootNamespace>
+    <AssemblyName>FriendlyBudget.LocalClient.Components.DAL.Entities</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("FriendlyBudget.LocalClient.Components.DAL.DTO")]
+[assembly: AssemblyTitle("FriendlyBudget.LocalClient.Components.DAL.Entities")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("FriendlyBudget.LocalClient.Components.DAL.DTO")]
+[assembly: AssemblyProduct("FriendlyBudget.LocalClient.Components.DAL.Entities")]
 [assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

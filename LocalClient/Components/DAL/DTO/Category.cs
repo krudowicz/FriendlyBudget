@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FriendlyBudget.LocalClient.Components.DAL.DTO
+namespace FriendlyBudget.LocalClient.Components.DAL.Entities
 {
     public class Category : DataObject
     {

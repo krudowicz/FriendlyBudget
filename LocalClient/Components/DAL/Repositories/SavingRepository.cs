@@ -1,6 +1,6 @@
 ﻿using FriendlyBudget.LocalClient.Components.Core.Interfaces;
 using FriendlyBudget.LocalClient.Components.DAL.Database;
-using FriendlyBudget.LocalClient.Components.DAL.DTO;
+using FriendlyBudget.LocalClient.Components.DAL.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,7 +33,7 @@ namespace FriendlyBudget.LocalClient.Components.DAL.Repositories
         {
             using(var context = new MainContext())
             {
-                context.Entry(item).State = System.Data.Entity.EntityState.Added();
+                context.Entry(item).State = System.Data.Entity.EntityState.Added;
                 context.SaveChanges();
             }
         }
@@ -60,22 +60,52 @@ namespace FriendlyBudget.LocalClient.Components.DAL.Repositories
 
         public Saving GetOne(ulong id)
         {
-            throw new NotImplementedException();
+            using(var context = new MainContext())
+            {
+                Saving saving;
+                var query = (from s in context.Savings
+                             where s.Id == id
+                             select s);
+
+                saving = query.FirstOrDefault();
+
+                UpdateItemsList(saving);
+
+                return saving;
+            }
         }
 
         public void Remove(Saving item)
         {
-            throw new NotImplementedException();
+            using(var context = new MainContext())
+            {
+                context.Entry(item).State = System.Data.Entity.EntityState.Deleted;
+                context.SaveChanges();
+            }
         }
 
         public void Update(Saving modifiedItem)
         {
-            throw new NotImplementedException();
+            using(var context = new MainContext())
+            {
+                context.Entry(modifiedItem).State = System.Data.Entity.EntityState.Modified;
+                UpdateItemsList(modifiedItem);
+                context.SaveChanges();
+            }
         }
 
         public void Update(IEnumerable<Saving> modifiedItems)
         {
-            throw new NotImplementedException();
+            using(var context = new MainContext())
+            {
+                foreach(Saving modifiedItem in modifiedItems)
+                {
+                    context.Entry(modifiedItem).State = System.Data.Entity.EntityState.Modified;
+                }
+
+                UpdateItemsList(modifiedItems);
+                context.SaveChanges();
+            }
         }
 
         #endregion

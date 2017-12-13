@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using FriendlyBudget.LocalClient.Components.Core.Abstraction;
 
-namespace FriendlyBudget.LocalClient.Components.DAL.DTO
+namespace FriendlyBudget.LocalClient.Components.DAL.Entities
 {
     public class Expenditure : MoneyObject
     {

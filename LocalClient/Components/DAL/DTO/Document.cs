@@ -5,10 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FriendlyBudget.LocalClient.Components.DAL.DTO
+namespace FriendlyBudget.LocalClient.Components.DAL.Entities
 {
     /// <summary>
-    /// Document DTO, not used at the moment, but will be in the future with Documents implementation.
+    /// Document Entities, not used at the moment, but will be in the future with Documents implementation.
     /// SHOULD NOT BE USED RIGHT NOW!
     /// </summary>
     public class Document : DataObject

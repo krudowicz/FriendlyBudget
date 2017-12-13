@@ -2,7 +2,7 @@
 using System.Linq;
 using NUnit.Framework;
 using System.Collections.Generic;
-using FriendlyBudget.LocalClient.Components.DAL.DTO;
+using FriendlyBudget.LocalClient.Components.DAL.Entities;
 using FriendlyBudget.LocalClient.Plugins.CalculatorPlugin;
 
 namespace FriendlyBudget.LocalClient.Tests.PluginTests

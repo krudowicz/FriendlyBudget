@@ -53,6 +53,7 @@
     <Compile Include="FamilyMemberRepository.cs" />
     <Compile Include="IncomeRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SavingRepository.cs" />
     <Compile Include="UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -68,9 +69,9 @@
       <Project>{91ccade0-79bf-49b7-a15f-76fae5087c38}</Project>
       <Name>Database</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DTO\DTO.csproj">
+    <ProjectReference Include="..\DTO\Entities.csproj">
       <Project>{a7bb5efa-a0e1-4bf1-ba1e-16032a04405d}</Project>
-      <Name>DTO</Name>
+      <Name>Entities</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

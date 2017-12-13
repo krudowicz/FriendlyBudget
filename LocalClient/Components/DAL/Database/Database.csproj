@@ -55,9 +55,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DTO\DTO.csproj">
+    <ProjectReference Include="..\DTO\Entities.csproj">
       <Project>{a7bb5efa-a0e1-4bf1-ba1e-16032a04405d}</Project>
-      <Name>DTO</Name>
+      <Name>Entities</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

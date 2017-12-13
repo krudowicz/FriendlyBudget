@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using FriendlyBudget.LocalClient.Components.Validation;
-using FriendlyBudget.LocalClient.Components.DAL.DTO;
+using FriendlyBudget.LocalClient.Components.DAL.Entities;
 using FriendlyBudget.LocalClient.Components.Core.Abstraction;
 using NUnit.Framework;
 
