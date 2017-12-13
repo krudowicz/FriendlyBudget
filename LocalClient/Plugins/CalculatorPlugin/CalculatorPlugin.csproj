@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Calculator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SavingsCalculator.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Components\Core\Abstraction\Abstraction.csproj">
