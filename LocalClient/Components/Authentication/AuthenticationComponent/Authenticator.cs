@@ -10,7 +10,7 @@ using FriendlyBudget.LocalClient.Components.AuthenticationComponent.Helpers;
 
 namespace FriendlyBudget.LocalClient.Components.AuthenticationComponent
 {
-    class Authenticator : IAuthenticator<User>
+    public class Authenticator : IAuthenticator<User>
     {
         private UserRepository _repository;
 
@@ -19,62 +19,27 @@ namespace FriendlyBudget.LocalClient.Components.AuthenticationComponent
             _repository = repository;
         }
 
-        public bool Authenticate(User user)
+        public bool Authenticate(string password, User user)
         {
-            bool result = AuthenticateInternal(user);
-            return result;
-        }
-
-        private bool CheckLogin(User user)
-        {
-            bool result = false;
-
-            string login = user.Login;
-            _repository.GetByLogin(login, out result);
-
+            bool result = AuthenticateInternal(password, user);
             return result;
         }
 
         //TODO: It is probably bugged and needs different solution to allow comparing passwords
-        private bool CheckPassword(User user)
+        private bool CheckPassword(string providedPassword, string userPassword)
         {
             bool result = false;
 
-            string login = user.Login;
-            User userFromRepository = _repository.GetByLogin(login);
-
-            var providedPassword = PasswordEncoder.Encode(user.Password);
-            var actualPassword = userFromRepository.Password;
-
-            bool passwordsMatch = providedPassword == actualPassword;
-
-            if (passwordsMatch)
-            {
-                result = true;
-            }
+            
 
             return result;
         }
 
-        private bool AuthenticateInternal(User user)
+        private bool AuthenticateInternal(string password, User user)
         {
-            string login = user.Login;
+            bool result = false;
 
-            User userFromRepository = _repository.GetByLogin(login, out bool userFound);
-
-            bool authenticated = false;
-
-            if(userFound)
-            {
-                bool passwordMatches = CheckPassword(user);
-
-                if(passwordMatches)
-                {
-                    authenticated = true;
-                }
-            }
-
-            return authenticated;
+            return result;
         }
     }
 }

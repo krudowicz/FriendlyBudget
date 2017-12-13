@@ -8,6 +8,6 @@ namespace FriendlyBudget.LocalClient.Components.Core.Interfaces
 {
     public interface IAuthenticator<T>
     {
-        bool Authenticate(T user);
+        bool Authenticate(string password, T user);
     }
 }

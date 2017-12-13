@@ -39,6 +39,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="AuthenticationComponentHelpersTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ValidatorTests.cs" />
   </ItemGroup>
@@ -54,6 +55,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Components\Authentication\AuthenticationComponent\AuthenticationComponent.csproj">
+      <Project>{4C47F696-B412-4170-B874-F730D7C213DD}</Project>
+      <Name>AuthenticationComponent</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Components\Core\Abstraction\Abstraction.csproj">
       <Project>{6ccbc3e6-fdbb-4154-900b-36c4e351cd91}</Project>
       <Name>Abstraction</Name>

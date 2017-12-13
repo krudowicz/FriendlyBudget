@@ -10,36 +10,35 @@ namespace FriendlyBudget.LocalClient.Components.AuthenticationComponent.Helpers
     class PasswordEncoder
     {
 
-        public static byte[] Encode(string password)
+        public static string Encode(string password)
         {
-            byte[] encryptedPassword = EncodeInternal(password);
+            string encryptedPassword = EncodeInternal(password);
             return encryptedPassword;
         }
 
-        public static byte[] Encode(string password, string algorithm)
+        //public static byte[] Encode(string password)
+        //{
+        //    byte[] encryptedPassword = EncodeInternal(password);
+        //    return encryptedPassword;
+        //}
+
+        private static string EncodeInternal(string password)
         {
-            byte[] encryptedPassword = EncodeInternal(password, algorithm);
-            return encryptedPassword;
+            return EncodeSHA512(password);
+
+            //switch (algorithm)
+            //{
+            //    case "SHA256":
+            //        return EncodeSHA256(password);
+            //    case "SHA384":
+            //        return EncodeSHA384(password);
+                
+            //    default:
+            //        return null;
+            //}
         }
 
-        private static byte[] EncodeInternal(string password, string algorithm = "SHA512")
-        {
-            
-
-            switch(algorithm)
-            {
-                case "SHA256":
-                    return EncodeSHA256(password);
-                case "SHA384":
-                    return EncodeSHA384(password);
-                case "SHA512":
-                    return EncodeSHA512(password);
-                default:
-                    return null;
-            }
-        }
-
-        private static byte[] EncodeSHA256(string password)
+        private static string EncodeSHA256(string password)
         {
             byte[] encryptedPassword;
 
@@ -50,10 +49,12 @@ namespace FriendlyBudget.LocalClient.Components.AuthenticationComponent.Helpers
 
             encryptedPassword = provider.ComputeHash(encodedPassword);
 
-            return encryptedPassword;
+            string result = System.Text.Encoding.Unicode.GetString(encodedPassword);
+
+            return result;
         }
 
-        private static byte[] EncodeSHA384(string password)
+        private static string EncodeSHA384(string password)
         {
             byte[] encryptedPassword;
 
@@ -64,10 +65,12 @@ namespace FriendlyBudget.LocalClient.Components.AuthenticationComponent.Helpers
 
             encryptedPassword = provider.ComputeHash(encodedPassword);
 
-            return encryptedPassword;
+            string result = System.Text.Encoding.Unicode.GetString(encodedPassword);
+
+            return result;
         }
 
-        private static byte[] EncodeSHA512(string password)
+        private static string EncodeSHA512(string password)
         {
             byte[] encryptedPassword;
 
@@ -78,7 +81,9 @@ namespace FriendlyBudget.LocalClient.Components.AuthenticationComponent.Helpers
 
             encryptedPassword = provider.ComputeHash(encodedPassword);
 
-            return encryptedPassword;
+            string result = System.Text.Encoding.Unicode.GetString(encodedPassword);
+
+            return result;
         }
     }
 }
