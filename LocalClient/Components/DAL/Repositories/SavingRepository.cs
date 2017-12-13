@@ -1,4 +1,5 @@
 ﻿using FriendlyBudget.LocalClient.Components.Core.Interfaces;
+using FriendlyBudget.LocalClient.Components.DAL.Database;
 using FriendlyBudget.LocalClient.Components.DAL.DTO;
 using System;
 using System.Collections.Generic;
@@ -10,21 +11,51 @@ namespace FriendlyBudget.LocalClient.Components.DAL.Repositories
 {
     class SavingRepository : IRepository<Saving>
     {
-        public List<Saving> Items { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        #region Fields
+
+        private List<Saving> _items { get; set; }
+
+        #endregion
+
+        #region Properties
+
+        public List<Saving> Items
+        {
+            get { return _items; }
+            set => _items = value;
+        }
+
+        #endregion
+
+        #region Public Methods
 
         public void Add(Saving item)
         {
-            throw new NotImplementedException();
+            using(var context = new MainContext())
+            {
+                context.Entry(item).State = System.Data.Entity.EntityState.Added();
+                context.SaveChanges();
+            }
         }
 
         public IEnumerable<Saving> GetAll()
         {
-            throw new NotImplementedException();
+            using(var context = new MainContext())
+            {
+                IEnumerable<Saving> savings = context.Savings.AsEnumerable();
+                UpdateItemsList(savings);
+                return savings;
+            }
         }
 
         public IEnumerable<Saving> GetByQuery(string query)
         {
-            throw new NotImplementedException();
+            using(var context = new MainContext())
+            {
+                IEnumerable<Saving> savings = context.Savings.SqlQuery(query);
+                UpdateItemsList(savings);
+                return savings;
+            }
         }
 
         public Saving GetOne(ulong id)
@@ -46,5 +77,22 @@ namespace FriendlyBudget.LocalClient.Components.DAL.Repositories
         {
             throw new NotImplementedException();
         }
+
+        #endregion
+
+        #region Methods
+
+        private void UpdateItemsList(Saving item)
+        {
+            Items.Clear();
+            Items.Add(item);
+        }
+
+        private void UpdateItemsList(IEnumerable<Saving> items)
+        {
+            Items = items.ToList();
+        }
+
+        #endregion
     }
 }
