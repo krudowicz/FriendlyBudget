@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26228.12
+VisualStudioVersion = 15.0.26228.4
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Plugins", "Plugins", "{D5D0C562-1E66-4BCC-99DE-0AD1C68F80D2}"
 EndProject
@@ -58,6 +58,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreControllers", "Components\Controllers\CoreControllers\CoreControllers.csproj", "{565A4433-C422-47E5-9A9E-99B5C754745C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{FA43DDA5-3A21-4991-9F37-9AF873BD2AF7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "System", "Components\Core\System\System.csproj", "{5322C515-5100-42BA-A9EF-4BBA945DA112}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -129,6 +131,10 @@ Global
 		{565A4433-C422-47E5-9A9E-99B5C754745C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{565A4433-C422-47E5-9A9E-99B5C754745C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{565A4433-C422-47E5-9A9E-99B5C754745C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5322C515-5100-42BA-A9EF-4BBA945DA112}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5322C515-5100-42BA-A9EF-4BBA945DA112}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5322C515-5100-42BA-A9EF-4BBA945DA112}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5322C515-5100-42BA-A9EF-4BBA945DA112}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -160,5 +166,6 @@ Global
 		{CE7BA4D1-F850-4232-A495-C2888EA96FBE} = {32C16B17-2AA8-4E3F-A9C7-0C705229E925}
 		{565A4433-C422-47E5-9A9E-99B5C754745C} = {FC3D0CEF-79FE-49CF-B388-8C9B36D8A396}
 		{FA43DDA5-3A21-4991-9F37-9AF873BD2AF7} = {F32C866C-E78E-40FB-8C8F-BCB1DDB24F8E}
+		{5322C515-5100-42BA-A9EF-4BBA945DA112} = {24B6E1F2-11C5-4D60-B8DA-7CFE01D5C742}
 	EndGlobalSection
 EndGlobal
