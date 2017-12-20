@@ -40,5 +40,13 @@ namespace FriendlyBudget.LocalClient.Components.Core.System
             throw new NotImplementedException();
         }
 
+        private void LoadConfiguration(Dictionary<string, string> configurationSet)
+        {
+            foreach(KeyValuePair<string, string> configuration in configurationSet)
+            {
+
+            }
+        }
+
     }
 }
