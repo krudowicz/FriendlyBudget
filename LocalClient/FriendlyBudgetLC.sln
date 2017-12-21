@@ -63,7 +63,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "System", "Components\Core\S
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileComponent", "Components\Core\FileComponent\FileComponent.csproj", "{0EFFB0EB-FC04-4022-8FE6-8F2C250DEAE8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Parsers", "Components\Core\Parsers\Parsers.csproj", "{2E37371B-9790-42EF-8CA9-BA759CB21A31}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Serialization", "Components\Core\Parsers\Serialization.csproj", "{2E37371B-9790-42EF-8CA9-BA759CB21A31}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
