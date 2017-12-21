@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
-namespace FriendlyBudget.LocalClient.Components.Core.Parsers
+namespace FriendlyBudget.LocalClient.Components.Core.Serialization
 {
-    class XmlDeserializer
+    class JsonDeserializer
     {
     }
 }
