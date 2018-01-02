@@ -9,6 +9,8 @@ namespace FriendlyBudget.LocalClient.Components.Core.FileComponent
 {
     class FileReader : IDisposable
     {
+        private bool _disposed = false;
+
         private string _path;
         private string _defaultPath;
         private string _fileName;
@@ -74,7 +76,24 @@ namespace FriendlyBudget.LocalClient.Components.Core.FileComponent
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            Dispose(true);
+
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!_disposed)
+            {
+                if (disposing)
+                {
+                    _path = null;
+                    _defaultPath = string.Empty;
+                    _fileName = string.Empty;
+                }
+            }
+
+            _disposed = true;
         }
     }
 }

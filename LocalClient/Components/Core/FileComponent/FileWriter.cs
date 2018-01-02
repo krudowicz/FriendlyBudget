@@ -9,10 +9,12 @@ namespace FriendlyBudget.LocalClient.Components.Core.FileComponent
 {
     class FileWriter : IDisposable
     {
+        private bool _disposed = false;
+
         private FileReader _reader;
         private string _path;
         private string _currentContent;
-
+        
         public FileWriter()
         {
             _reader = new FileReader();
@@ -50,27 +52,39 @@ namespace FriendlyBudget.LocalClient.Components.Core.FileComponent
 
         private void AppendToFile(string content)
         {
-            throw new NotImplementedException();
+            File.AppendAllText(_path, content);
         }
 
         private void OverwriteFileContent(string content)
         {
-            throw new NotImplementedException();
-        }
-
-        private bool FileExists()
-        {
-            throw new NotImplementedException();
+            File.WriteAllText(_path, content);
         }
 
         private void CreateFile(string path)
         {
-            throw new NotImplementedException();
+            File.Create(path);
         }
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            Dispose(true);
+
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if(!_disposed)
+            {
+                if(disposing)
+                {
+                    _reader = null;
+                    _path = string.Empty;
+                    _currentContent = string.Empty;
+                }
+            }
+
+            _disposed = true;
         }
     }
 }
