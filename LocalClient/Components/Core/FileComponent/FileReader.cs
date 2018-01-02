@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,37 +7,42 @@ using System.Threading.Tasks;
 
 namespace FriendlyBudget.LocalClient.Components.Core.FileComponent
 {
-    class FileParser
+    class FileReader
     {
         private string _path;
         private string _defaultPath;
         private string _fileName;
 
-        public string Parse(string filename)
+        public string Read(string filename)
         {
             string path = string.Empty;
             SetPath(path);
             string result = string.Empty;
-            result = ParseInternal(filename);
+            result = ReadInternal(filename);
             return result;
         }
 
-        public string Parse(string filename, string path)
+        public string Read(string filename, string path)
         {
             SetPath(path);
             string result = string.Empty;
-            result = ParseInternal(filename);
+            result = ReadInternal(filename);
             return result;
         }
 
-        private string ParseInternal(string filename)
+        private string ReadInternal(string filename)
         {
+            string result = string.Empty;
+            string file = _path + filename;
+
             if(!FileExists())
             {
                 throw new Exception("File not found.");
             }
 
-            throw new NotImplementedException();
+            File.ReadAllLines(file);
+
+            return result;
         }
 
         //TODO: Not complete!
@@ -54,16 +60,16 @@ namespace FriendlyBudget.LocalClient.Components.Core.FileComponent
 
         private bool FileExists()
         {
-            throw new NotImplementedException();
+            bool result = false;
 
             string path = _path + _fileName;
 
             if (!string.IsNullOrWhiteSpace(path))
             {
-                return true;
+                result = File.Exists(path);
             }
 
-            return false;
+            return result;
         }
     }
 }
