@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FriendlyBudget.LocalClient.Components.Core.FileComponent
 {
-    class FileReader
+    class FileReader : IDisposable
     {
         private string _path;
         private string _defaultPath;
@@ -70,6 +70,11 @@ namespace FriendlyBudget.LocalClient.Components.Core.FileComponent
             }
 
             return result;
+        }
+
+        public void Dispose()
+        {
+            throw new NotImplementedException();
         }
     }
 }
