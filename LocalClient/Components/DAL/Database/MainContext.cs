@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
-using FriendlyBudget.LocalClient.Components.DAL.Entities;
+using FriendlyBudget.LocalClient.Components.Core.DTO;
 
 namespace FriendlyBudget.LocalClient.Components.DAL.Database
 {

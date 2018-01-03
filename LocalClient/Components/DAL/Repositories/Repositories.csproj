@@ -47,7 +47,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DocumentRepository.cs" />
     <Compile Include="CategoryRepository.cs" />
     <Compile Include="ExpenditureRepository.cs" />
     <Compile Include="FamilyMemberRepository.cs" />
@@ -72,10 +71,6 @@
     <ProjectReference Include="..\Database\Database.csproj">
       <Project>{91ccade0-79bf-49b7-a15f-76fae5087c38}</Project>
       <Name>Database</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DTO\Entities.csproj">
-      <Project>{a7bb5efa-a0e1-4bf1-ba1e-16032a04405d}</Project>
-      <Name>Entities</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

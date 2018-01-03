@@ -1,7 +1,7 @@
 ﻿using System;
 using NUnit.Framework;
-using FriendlyBudget.LocalClient.Components.DAL.Entities;
 using FriendlyBudget.LocalClient.Components.AuthenticationComponent.Helpers;
+using FriendlyBudget.LocalClient.Components.Core.DTO;
 
 namespace FriendlyBudget.LocalClient.Tests.ComponentTests
 {

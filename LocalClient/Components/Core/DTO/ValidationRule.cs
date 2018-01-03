@@ -5,11 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FriendlyBudget.LocalClient.Components.DAL.Entities
+namespace FriendlyBudget.LocalClient.Components.Core.DTO
 {
-    class ValidationRule : DataObject
+    public class ValidationRule : DataObject
     {
-
         public string LinkedEntityType { get; set; }
         public string Name { get; set; }
         public string Content { get; set; }

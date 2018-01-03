@@ -63,9 +63,9 @@
       <Project>{6ccbc3e6-fdbb-4154-900b-36c4e351cd91}</Project>
       <Name>Abstraction</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Components\DAL\DTO\Entities.csproj">
-      <Project>{A7BB5EFA-A0E1-4BF1-BA1E-16032A04405D}</Project>
-      <Name>Entities</Name>
+    <ProjectReference Include="..\..\Components\Core\DTO\DTO.csproj">
+      <Project>{7674C9E6-52BD-45E5-871B-39C3BD704BD3}</Project>
+      <Name>DTO</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Components\Validation\ValidationComponent\ValidationComponent.csproj">
       <Project>{2fe88d9e-16be-4c6d-8390-efc7086e5d5f}</Project>
