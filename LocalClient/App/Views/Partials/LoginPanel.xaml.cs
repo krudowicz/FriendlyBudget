@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace FriendlyBudget.LocalClient.App.Views
+namespace FriendlyBudget.LocalClient.App.Views.Partials
 {
     /// <summary>
-    /// Interaction logic for RegisterView.xaml
+    /// Interaction logic for LoginPanel.xaml
     /// </summary>
-    public partial class RegisterView : UserControl
+    public partial class LoginPanel : UserControl
     {
-        public RegisterView()
+        public LoginPanel()
         {
             InitializeComponent();
         }
