@@ -1,12 +1,12 @@
-﻿using System;
+﻿using FriendlyBudget.LocalClient.Components.Core.DTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using FriendlyBudget.LocalClient.Components.DAL.Entities;
 
 
-namespace FriendlyBudget.LocalClient.Plugins.CalculatorPlugin
+namespace FriendlyBudget.LocalClient.Modules.Calculator
 {
     public class Calculator
     {

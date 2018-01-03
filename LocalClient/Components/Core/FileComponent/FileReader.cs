@@ -9,11 +9,28 @@ namespace FriendlyBudget.LocalClient.Components.Core.FileComponent
 {
     class FileReader : IDisposable
     {
+        #region Fields
+
         private bool _disposed = false;
 
         private string _path;
         private string _defaultPath;
         private string _fileName;
+
+        #endregion
+
+        #region Constructors
+
+        public FileReader()
+        {
+            _path = string.Empty;
+            _fileName = string.Empty;
+            _defaultPath = @"C:\Users\Default\Documents\FriendlyBudget";
+        }
+
+        #endregion
+
+        #region Public Methods
 
         public string Read(string filename)
         {
@@ -31,6 +48,10 @@ namespace FriendlyBudget.LocalClient.Components.Core.FileComponent
             result = ReadInternal(filename);
             return result;
         }
+
+        #endregion
+
+        #region Methods
 
         private string ReadInternal(string filename)
         {
@@ -74,6 +95,10 @@ namespace FriendlyBudget.LocalClient.Components.Core.FileComponent
             return result;
         }
 
+        #endregion
+
+        #region IDisposable implementation
+
         public void Dispose()
         {
             Dispose(true);
@@ -95,5 +120,7 @@ namespace FriendlyBudget.LocalClient.Components.Core.FileComponent
 
             _disposed = true;
         }
+
+        #endregion
     }
 }

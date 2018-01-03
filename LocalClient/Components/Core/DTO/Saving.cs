@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FriendlyBudget.LocalClient.Components.DAL.Entities
+namespace FriendlyBudget.LocalClient.Components.Core.DTO
 {
-    class Saving : DataObject
+    public class Saving : DataObject
     {
         public string Goal { get; set; }
         public Category Category { get; set; }

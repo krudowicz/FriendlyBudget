@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("FriendlyBudget.LocalClient.Plugins.PdfExporterPlugin")]
+[assembly: AssemblyTitle("DTO")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("FriendlyBudget.LocalClient.Plugins.PdfExporterPlugin")]
-[assembly: AssemblyCopyright("Copyright ©  2017")]
+[assembly: AssemblyProduct("DTO")]
+[assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("d0120fa9-83c7-4134-9adb-02095f548db5")]
+[assembly: Guid("7674c9e6-52bd-45e5-871b-39c3bd704bd3")]
 
 // Version information for an assembly consists of the following four values:
 //

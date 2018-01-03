@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using FriendlyBudget.LocalClient.Components.DAL.Entities;
 using FriendlyBudget.LocalClient.Components.DAL.Repositories;
 using FriendlyBudget.LocalClient.Components.AuthenticationComponent.Helpers;
+using FriendlyBudget.LocalClient.Components.Core.DTO;
 
 namespace FriendlyBudget.LocalClient.Components.AuthenticationComponent
 {

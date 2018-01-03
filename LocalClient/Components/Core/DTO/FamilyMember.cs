@@ -1,13 +1,13 @@
-﻿using System;
+﻿using FriendlyBudget.LocalClient.Components.Core.Abstraction;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using FriendlyBudget.LocalClient.Components.Core.Abstraction;
 
-namespace FriendlyBudget.LocalClient.Components.DAL.Entities
+namespace FriendlyBudget.LocalClient.Components.Core.DTO
 {
-    class FamilyMember : Person
+    public class FamilyMember : Person
     {
         public List<Income> Incomes { get; set; }
         public List<Expenditure> Expenditures { get; set; }

@@ -1,4 +1,4 @@
-﻿using FriendlyBudget.LocalClient.Components.DAL.Entities;
+﻿using FriendlyBudget.LocalClient.Components.Core.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;

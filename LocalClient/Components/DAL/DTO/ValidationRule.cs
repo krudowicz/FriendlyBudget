@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FriendlyBudget.LocalClient.Components.DAL.Entities
 {
-    public class ValidationRule : DataObject
+    class ValidationRule : DataObject
     {
 
         public string LinkedEntityType { get; set; }

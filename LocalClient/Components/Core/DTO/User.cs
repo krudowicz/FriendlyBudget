@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FriendlyBudget.LocalClient.Components.DAL.Entities
+namespace FriendlyBudget.LocalClient.Components.Core.DTO
 {
-    class User : Person
+    public class User : Person
     {
         public string Login { get; set; }
         public string Email { get; set; }

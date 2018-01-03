@@ -5,15 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FriendlyBudget.LocalClient.Components.DAL.Entities
+namespace FriendlyBudget.LocalClient.Components.Core.DTO
 {
-    class Category : DataObject
+    public class Category : DataObject
     {
-
         public string Name { get; set; }
         public bool ConstantByDefault { get; set; }
         public List<Category> Subcategories { get; set; }
         public List<MoneyObject> MoneyObjects { get; set; }
-
     }
 }

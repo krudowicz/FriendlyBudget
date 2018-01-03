@@ -61,6 +61,10 @@
       <Project>{6CCBC3E6-FDBB-4154-900B-36C4E351CD91}</Project>
       <Name>Abstraction</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Core\DTO\DTO.csproj">
+      <Project>{7674c9e6-52bd-45e5-871b-39c3bd704bd3}</Project>
+      <Name>DTO</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Core\Interfaces\Interfaces.csproj">
       <Project>{7b410779-fd59-4a18-8103-f5c34009be1f}</Project>
       <Name>Interfaces</Name>

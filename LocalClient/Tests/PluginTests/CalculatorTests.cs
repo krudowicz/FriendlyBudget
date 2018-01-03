@@ -1,9 +1,8 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using NUnit.Framework;
 using System.Collections.Generic;
-using FriendlyBudget.LocalClient.Components.DAL.Entities;
-using FriendlyBudget.LocalClient.Plugins.CalculatorPlugin;
+using FriendlyBudget.LocalClient.Components.Core.DTO;
+using FriendlyBudget.LocalClient.Modules.Calculator;
 
 namespace FriendlyBudget.LocalClient.Tests.PluginTests
 {

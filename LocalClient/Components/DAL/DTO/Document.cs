@@ -11,7 +11,7 @@ namespace FriendlyBudget.LocalClient.Components.DAL.Entities
     /// Document Entities, not used at the moment, but will be in the future with Documents implementation.
     /// SHOULD NOT BE USED RIGHT NOW!
     /// </summary>
-    public class Document : DataObject
+    class Document : DataObject
     {
         public string Name { get; set; }
         public string Type { get; set; }
