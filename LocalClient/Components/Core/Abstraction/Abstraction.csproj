@@ -40,7 +40,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controller.cs" />
     <Compile Include="DataObject.cs" />
     <Compile Include="MoneyObject.cs" />
     <Compile Include="Person.cs" />

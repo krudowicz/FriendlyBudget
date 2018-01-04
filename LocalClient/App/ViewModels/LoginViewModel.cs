@@ -14,8 +14,6 @@ namespace FriendlyBudget.LocalClient.App.ViewModels
 
         public string LoginOrEmail { get; set; }
         public string Password { get; set; }
- 
-        public RelayCommand LoginCommand { get; set; } 
 
         public LoginViewModel()
         {

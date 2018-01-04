@@ -14,7 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace FriendlyBudget.LocalClient.App.Views
+namespace FriendlyBudget.LocalClient.App.Views.Home
 {
     /// <summary>
     /// Interaction logic for LoginView.xaml

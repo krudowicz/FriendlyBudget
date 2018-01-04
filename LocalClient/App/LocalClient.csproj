@@ -54,11 +54,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Controllers\FamilyController.cs" />
     <Compile Include="ViewModels\FamilyMemberViewModel.cs" />
     <Compile Include="ViewModels\FamilyViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
-    <Compile Include="Views\LoginView.xaml.cs">
+    <Compile Include="Views\Home\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Partials\LoginPanel.xaml.cs">
@@ -76,7 +75,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Views\LoginView.xaml">
+    <Page Include="Views\Home\LoginView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -111,7 +110,10 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Views\FamilyMember\" />
+    <Folder Include="Views\Family\" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Components\Commands\Commands\Commands.csproj">
       <Project>{CE7BA4D1-F850-4232-A495-C2888EA96FBE}</Project>

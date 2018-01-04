@@ -7,23 +7,50 @@ using System.Windows.Input;
 
 namespace FriendlyBudget.LocalClient.Components.Commands
 {
-    public class RelayCommand : ICommand
+    public class RelayCommand<T> : ICommand
     {
-        public event EventHandler CanExecuteChanged;
+        #region Fields
 
-        public RelayCommand()
+        readonly Action<T> _execute;
+        readonly Predicate<T> _canExecute;
+
+        #endregion
+
+        #region Constructors
+
+        public RelayCommand(Action<T> execute)
+        : this(execute, null)
         {
-
         }
+
+        public RelayCommand(Action<T> execute, Predicate<T> canExecute)
+        {
+            if (execute == null)
+                throw new ArgumentNullException("execute");
+
+            _execute = execute;
+            _canExecute = canExecute;
+        }
+        #endregion
+
+        #region ICommand Members
 
         public bool CanExecute(object parameter)
         {
-            throw new NotImplementedException();
+            return _canExecute == null ? true : _canExecute((T)parameter);
+        }
+
+        public event EventHandler CanExecuteChanged
+        {
+            add { CommandManager.RequerySuggested += value; }
+            remove { CommandManager.RequerySuggested -= value; }
         }
 
         public void Execute(object parameter)
         {
-            throw new NotImplementedException();
+            _execute((T)parameter);
         }
+
+        #endregion
     }
 }
