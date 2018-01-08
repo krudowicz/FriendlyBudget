@@ -1,5 +1,5 @@
 ﻿using FriendlyBudget.LocalClient.Components.Core.Interfaces;
-using FriendlyBudget.LocalClient.Components.DAL.Repositories;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,18 +10,9 @@ namespace FriendlyBudget.LocalClient.Components.Validation
 {
     public class LoginValidator
     {
-        public static bool CheckUserExistence(string login)
+        public static bool CheckUserExistence()
         {
-            bool result = false;
-
-            UserRepository userRepository = new UserRepository();
-
-            bool found = false;
-            userRepository.GetByLogin(login, out found);
-
-            result = found;
-
-            return result;
+            throw new Exception("What the fuck is this shit?");
         }
     }
 }

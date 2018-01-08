@@ -12,7 +12,7 @@ namespace FriendlyBudget.LocalClient.App.ViewModels
     {
 
 
-        public string LoginOrEmail { get; set; }
+        public string Login { get; set; }
         public string Password { get; set; }
 
         public LoginViewModel()

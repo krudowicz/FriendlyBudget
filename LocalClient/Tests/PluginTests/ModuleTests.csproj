@@ -59,9 +59,9 @@
       <Project>{6CCBC3E6-FDBB-4154-900B-36C4E351CD91}</Project>
       <Name>Abstraction</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Components\Core\DTO\DTO.csproj">
+    <ProjectReference Include="..\..\Components\Core\DTO\PersistenceModel.csproj">
       <Project>{7674c9e6-52bd-45e5-871b-39c3bd704bd3}</Project>
-      <Name>DTO</Name>
+      <Name>PersistenceModel</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Plugins\CalculatorPlugin\Calculator.csproj">
       <Project>{084E6CC2-90AB-41E7-A663-5075C99D7C1D}</Project>

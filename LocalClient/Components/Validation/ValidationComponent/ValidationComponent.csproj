@@ -49,17 +49,13 @@
       <Project>{6ccbc3e6-fdbb-4154-900b-36c4e351cd91}</Project>
       <Name>Abstraction</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Core\DTO\DTO.csproj">
+    <ProjectReference Include="..\..\Core\DTO\PersistenceModel.csproj">
       <Project>{7674C9E6-52BD-45E5-871B-39C3BD704BD3}</Project>
-      <Name>DTO</Name>
+      <Name>PersistenceModel</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Core\Interfaces\Interfaces.csproj">
       <Project>{7b410779-fd59-4a18-8103-f5c34009be1f}</Project>
       <Name>Interfaces</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\DAL\Repositories\Repositories.csproj">
-      <Project>{46F33E41-41D6-4A01-84A8-F601E0822596}</Project>
-      <Name>Repositories</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

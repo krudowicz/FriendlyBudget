@@ -123,9 +123,9 @@
       <Project>{6CCBC3E6-FDBB-4154-900B-36C4E351CD91}</Project>
       <Name>Abstraction</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Components\Core\DTO\DTO.csproj">
+    <ProjectReference Include="..\Components\Core\DTO\PersistenceModel.csproj">
       <Project>{7674C9E6-52BD-45E5-871B-39C3BD704BD3}</Project>
-      <Name>DTO</Name>
+      <Name>PersistenceModel</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

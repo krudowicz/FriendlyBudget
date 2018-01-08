@@ -55,9 +55,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Core\DTO\DTO.csproj">
+    <ProjectReference Include="..\..\Core\DTO\PersistenceModel.csproj">
       <Project>{7674C9E6-52BD-45E5-871B-39C3BD704BD3}</Project>
-      <Name>DTO</Name>
+      <Name>PersistenceModel</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
