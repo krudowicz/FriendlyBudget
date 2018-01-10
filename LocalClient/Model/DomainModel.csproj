@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Category.cs" />
     <Compile Include="Expenditure.cs" />
+    <Compile Include="Family.cs" />
     <Compile Include="FamilyMember.cs" />
     <Compile Include="Income.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
