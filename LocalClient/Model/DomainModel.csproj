@@ -48,5 +48,11 @@
     <Compile Include="Role.cs" />
     <Compile Include="Saving.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Components\Core\Abstraction\Abstraction.csproj">
+      <Project>{6CCBC3E6-FDBB-4154-900B-36C4E351CD91}</Project>
+      <Name>Abstraction</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

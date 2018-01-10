@@ -20,9 +20,9 @@ namespace FriendlyBudget.LocalClient.DomainModel
         public decimal BudgetSet { get; set; }
         public decimal BudgetBalance { get; private set; }
         public decimal Balance { get; private set; }
-        public decimal OverallIncome { get; private set; }
-        public decimal OverallExpenditure { get; private set; }
-        public decimal OverallSavings { get; private set; }
+        public decimal TotalIncome { get; private set; }
+        public decimal TotalExpenditure { get; private set; }
+        public decimal TotalSavings { get; private set; }
 
         #endregion
 
@@ -39,27 +39,60 @@ namespace FriendlyBudget.LocalClient.DomainModel
 
         private decimal CalculateBudgetBalance()
         {
-            throw new NotImplementedException();
+            return BudgetSet - TotalExpenditure;
         }
 
         private decimal CalculateBalance()
         {
-            throw new NotImplementedException();
+            return TotalIncome - TotalExpenditure;
         }
 
-        private decimal CalculateOverallIncome()
+        private decimal CalculateTotalIncome()
         {
-            throw new NotImplementedException();
+            decimal total = 0;
+
+            foreach(Income income in Incomes)
+            {
+                total += income.Amount;
+            }
+
+            return total;
         }
 
-        private decimal CalculateOverallExpenditures()
+        private decimal CalculateTotalExpenditures()
         {
-            throw new NotImplementedException();
+            decimal total = 0;
+
+            foreach(Expenditure expenditure in Expenditures)
+            {
+                total += expenditure.Amount;
+            }
+
+            return total;
         }
 
-        private decimal CalculateOverallSavings()
+        private decimal CalculateTotalSavings()
         {
-            throw new NotImplementedException();
+            decimal total = 0;
+
+            foreach(Saving saving in Savings)
+            {
+                total += saving.MoneyAmountCurrent;
+            }
+
+            return total;
+        }
+
+        private decimal CalculateTotalSavingsRequired()
+        {
+            decimal total = 0;
+
+            foreach(Saving saving in Savings)
+            {
+                total += saving.MoneyAmountRequired;
+            }
+
+            return total;
         }
 
         #endregion
