@@ -22,6 +22,24 @@
     <Content Remove="ClientApp\**" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="ClientApp\components\Footer.tsx" />
+    <None Remove="ClientApp\components\Home.tsx" />
+    <None Remove="ClientApp\components\NavMenu.tsx" />
+    <None Remove="ClientApp\components\Sidebar.tsx" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\components\Footer.tsx" />
+    <TypeScriptCompile Include="ClientApp\components\Home.tsx" />
+    <TypeScriptCompile Include="ClientApp\components\NavMenu.tsx" />
+    <TypeScriptCompile Include="ClientApp\components\Sidebar.tsx" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ClientApp\css\" />
+  </ItemGroup>
+
   <Target Name="DebugRunWebpack" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('wwwroot\dist') ">
     <!-- Ensure Node.js is installed -->
     <Exec Command="node --version" ContinueOnError="true">
