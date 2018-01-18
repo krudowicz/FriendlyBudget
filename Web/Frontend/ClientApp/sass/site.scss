@@ -68,3 +68,9 @@ html, body, #react-app {
     padding-left: 40px;
     padding-right: 40px;
 }
+
+.footer {
+    @extend %shared-basic;
+    position: fixed;
+    bottom: 0;
+}
