@@ -7,8 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Infrastructure\Entities\" />
+    <Folder Include="Infrastructure\Database\" />
     <Folder Include="Model\" />
-    <Folder Include="Infrastructure\" />
   </ItemGroup>
 
 </Project>
