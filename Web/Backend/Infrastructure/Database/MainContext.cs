@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace FriendlyBudget.Web.Backend.Infrastructure.Database
 {
-    class MainContext : DbContext()
+    class MainContext : DbContext
     {
         public DbSet<User> Users { get; set; }
         public DbSet<Family> Families { get; set; }
