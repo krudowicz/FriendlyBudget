@@ -12,6 +12,7 @@ namespace FriendlyBudget.Web.Backend.Infrastructure.Entities
         public Country Country { get; set; }
         public Region Region { get; set; }
         public City City { get; set; }
+        public List<Family> Families { get; set; }
         public string AddedAt { get; set; }
         public string ModifiedAt { get; set; }
     }

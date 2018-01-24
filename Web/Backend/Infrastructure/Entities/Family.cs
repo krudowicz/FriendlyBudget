@@ -9,6 +9,7 @@ namespace FriendlyBudget.Web.Backend.Infrastructure.Entities
         public ulong Id { get; set; }
         public string Name { get; set; }
         public List<FamilyMember> FamilyMembers { get; set; }
+        public Location Location { get; set; }
         public string AddedAt { get; set; }
         public string ModifiedAt { get; set; }
     }
