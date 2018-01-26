@@ -1,0 +1,14 @@
+#!bin/sh
+branch="$(git rev-parse --abbrev-ref HEAD)"
+
+if [ "$branch" = "master" ]; then
+	echo -e "\e[31mDirect commits to \e[36;1;4mmaster\e[0m \e[31mbranch are forbidden.\e[0m"
+	echo -e "\e[90mPh'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn. \e[0m"
+	exit 1
+fi
+
+if [ "$branch" = "development" ]; then
+	echo -e "\e[31mDirect commits to \e[36;1;4mdevelopment\e[0m \e[31mbranch are forbidden.\e[0m"
+	echo -e "\e[90mPh'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn. \e[0m"
+	exit 1
+fi
