@@ -4,7 +4,7 @@ using System.Text;
 
 namespace FriendlyBudget.Web.Backend.Infrastructure.DTO
 {
-    class User
+    public class UserDto
     {
         public ulong Id { get; set; }
         public string Username { get; set; }
