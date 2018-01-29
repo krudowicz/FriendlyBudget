@@ -3,6 +3,7 @@ using FriendlyBudget.Web.Backend.Infrastructure.Entities;
 using FriendlyBudget.Web.Backend.Infrastructure.Repositories.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace FriendlyBudget.Web.Backend.Infrastructure.Repositories
@@ -10,10 +11,13 @@ namespace FriendlyBudget.Web.Backend.Infrastructure.Repositories
     class UserRepository : IRepository<User>, IDisposable
     {
         private AuthenticationContext _context;
+        private bool _disposed = false;
+        public List<User> Users { get; set; }
 
         public UserRepository(AuthenticationContext context)
         {
             _context = context;
+            Users = new List<User>();
         }
 
         public IList<User> GetAll()
@@ -23,6 +27,12 @@ namespace FriendlyBudget.Web.Backend.Infrastructure.Repositories
             foreach(User user in _context.Users)
             {
                 users.Add(user);
+            }
+
+            Users.Clear();
+            foreach(User user in users)
+            {
+                Users.Add(user);
             }
 
             return users;
@@ -37,6 +47,30 @@ namespace FriendlyBudget.Web.Backend.Infrastructure.Repositories
             {
                 found = true;
             }
+
+            Users.Clear();
+            Users.Add(user);
+
+            return user;
+        }
+
+        public User GetByEmail(string email, out bool found)
+        {
+            found = false;
+
+            var query = from u in _context.Users
+                        where u.Email == email
+                        select u;
+
+            User user = query.FirstOrDefault();
+
+            if(user != null)
+            {
+                found = true;
+            }
+
+            Users.Clear();
+            Users.Add(user);
 
             return user;
         }
@@ -61,12 +95,23 @@ namespace FriendlyBudget.Web.Backend.Infrastructure.Repositories
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            Dispose(true);
+
+            GC.SuppressFinalize(this);
         }
 
         private void Dispose(bool disposing)
         {
-            throw new NotImplementedException();
+            if(!_disposed)
+            {
+                if(disposing)
+                {
+                    _context = null;
+                    Users = null;
+                }
+
+                _disposed = true;
+            }
         }
     }
 }

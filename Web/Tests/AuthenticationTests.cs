@@ -19,17 +19,6 @@ namespace FriendlyBudget.Web.Tests
         }
 
         [Test]
-        public void User_Is_Authenticated_By_Username()
-        {
-            UserDto user = new UserDto();
-
-            bool result = Authenticator.Authenticate(user, new UsernameAuthentication());
-
-            Assert.IsTrue(result);
-        }
-
-
-        [Test]
         public void User_Provided_Wrong_Password()
         {
             UserDto user = new UserDto();
@@ -40,7 +29,7 @@ namespace FriendlyBudget.Web.Tests
         }
 
         [Test]
-        public void Username_Or_Email_Does_Not_Exist()
+        public void Email_Does_Not_Exist()
         {
             UserDto user = new UserDto();
 
