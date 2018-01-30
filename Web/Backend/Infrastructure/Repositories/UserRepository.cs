@@ -1,6 +1,7 @@
 ﻿using FriendlyBudget.Web.Backend.Infrastructure.Database;
 using FriendlyBudget.Web.Backend.Infrastructure.Entities;
 using FriendlyBudget.Web.Backend.Infrastructure.Repositories.Interfaces;
+using FriendlyBudget.Web.Backend.Model.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Text;
 
 namespace FriendlyBudget.Web.Backend.Infrastructure.Repositories
 {
-    class UserRepository : IRepository<User>, IDisposable
+    class UserRepository : IRepository<IUser>, IDisposable
     {
         private AuthenticationContext _context;
         private bool _disposed = false;
@@ -20,17 +21,17 @@ namespace FriendlyBudget.Web.Backend.Infrastructure.Repositories
             Users = new List<User>();
         }
 
-        public IList<User> GetAll()
+        public IList<IUser> GetAll()
         {
-            List<User> users = new List<User>();
+            List<IUser> users = new List<IUser>();
             
-            foreach(User user in _context.Users)
+            foreach(IUser user in _context.Users)
             {
                 users.Add(user);
             }
 
             Users.Clear();
-            foreach(User user in users)
+            foreach(IUser user in users)
             {
                 Users.Add(user);
             }
@@ -38,7 +39,7 @@ namespace FriendlyBudget.Web.Backend.Infrastructure.Repositories
             return users;
         }
 
-        public User GetOne(ulong id, out bool found)
+        public IUser GetOne(ulong id, out bool found)
         {
             found = false;
             User user = _context.Users.Find(id);
@@ -54,7 +55,7 @@ namespace FriendlyBudget.Web.Backend.Infrastructure.Repositories
             return user;
         }
 
-        public User GetByEmail(string email, out bool found)
+        public IUser GetByEmail(string email, out bool found)
         {
             found = false;
 
@@ -75,20 +76,23 @@ namespace FriendlyBudget.Web.Backend.Infrastructure.Repositories
             return user;
         }
 
-        public void Add(User item)
+        public void Add(IUser item)
         {
+            item = (User)item;
             _context.Entry(item).State = Microsoft.EntityFrameworkCore.EntityState.Added;
             _context.SaveChanges();
         }
 
-        public void Modify(User item)
+        public void Modify(IUser item)
         {
+            item = (User)item;
             _context.Entry(item).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
             _context.SaveChanges();
         }
 
-        public void Delete(User item)
+        public void Delete(IUser item)
         {
+            item = (User)item;
             _context.Entry(item).State = Microsoft.EntityFrameworkCore.EntityState.Deleted;
             _context.SaveChanges();
         }
