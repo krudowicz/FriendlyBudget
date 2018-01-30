@@ -4,7 +4,7 @@ using System.Text;
 
 namespace FriendlyBudget.Web.Backend.Model.Interfaces
 {
-    interface IUser
+    public interface IUser
     {
         ulong Id { get; set; }
         string Username { get; set; }

@@ -1,6 +1,7 @@
 ﻿using FriendlyBudget.Web.Backend.Infrastructure.DTO;
 using FriendlyBudget.Web.Backend.Model.Application_Services.Authentication;
 using FriendlyBudget.Web.Backend.Model.Application_Services.Authentication.Strategies;
+using FriendlyBudget.Web.Backend.Model.Interfaces;
 using NUnit.Framework;
 
 namespace FriendlyBudget.Web.Tests
@@ -11,7 +12,7 @@ namespace FriendlyBudget.Web.Tests
         [Test]
         public void User_Is_Authenticated_By_Email()
         {
-            UserDto user = new UserDto();
+            IUser user = new UserDto();
 
             bool result = Authenticator.Authenticate(user, new EmailAuthentication());
 
@@ -21,7 +22,7 @@ namespace FriendlyBudget.Web.Tests
         [Test]
         public void User_Provided_Wrong_Password()
         {
-            UserDto user = new UserDto();
+            IUser user = new UserDto();
 
             bool result = Authenticator.Authenticate(user, new EmailAuthentication());
 
@@ -31,7 +32,7 @@ namespace FriendlyBudget.Web.Tests
         [Test]
         public void Email_Does_Not_Exist()
         {
-            UserDto user = new UserDto();
+            IUser user = new UserDto();
 
             bool result = Authenticator.Authenticate(user, new EmailAuthentication());
 

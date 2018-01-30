@@ -1,4 +1,5 @@
 ﻿using FriendlyBudget.Web.Backend.Infrastructure.DTO;
+using FriendlyBudget.Web.Backend.Model.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,6 +8,6 @@ namespace FriendlyBudget.Web.Backend.Model.Application_Services.Authentication.I
 {
     public interface IAuthenticate
     {
-        bool Authenticate(UserDto user);
+        bool Authenticate(IUser user);
     }
 }

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace FriendlyBudget.Web.Backend.Model.Interfaces
 {
-    interface IRole
+    public interface IRole
     {
         string Name { get; set; }
         bool Read { get; set; }

@@ -13,12 +13,12 @@ namespace FriendlyBudget.Web.Backend.Infrastructure.Repositories
     {
         private AuthenticationContext _context;
         private bool _disposed = false;
-        public List<User> Users { get; set; }
+        public List<IUser> Users { get; set; }
 
         public UserRepository(AuthenticationContext context)
         {
             _context = context;
-            Users = new List<User>();
+            Users = new List<IUser>();
         }
 
         public IList<IUser> GetAll()
