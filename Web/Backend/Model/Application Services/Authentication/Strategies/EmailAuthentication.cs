@@ -14,11 +14,17 @@ namespace FriendlyBudget.Web.Backend.Model.Application_Services.Authentication.S
 
         }
 
-        public bool Authenticate(IUser user)
+        public bool Authenticate(IUser user, IUser foundUser)
         {
             bool result = false;
 
-
+            if(foundUser != null && user.Email == foundUser.Email)
+            {
+                if (user.Password == foundUser.Password)
+                {
+                    result = true;
+                }
+            }
 
             return result;
         }

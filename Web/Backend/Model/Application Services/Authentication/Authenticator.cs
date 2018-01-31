@@ -11,10 +11,9 @@ namespace FriendlyBudget.Web.Backend.Model.Application_Services.Authentication
 {
     public static class Authenticator
     {
-        public static bool Authenticate(IUser user, IAuthenticate authentication)
+        public static bool Authenticate(IUser user, IUser foundUser, IAuthenticate authentication)
         {
-            throw new NotImplementedException();
-            return authentication.Authenticate(user);
+            return authentication.Authenticate(user, foundUser);
         }
     }
 }

@@ -8,6 +8,6 @@ namespace FriendlyBudget.Web.Backend.Model.Application_Services.Authentication.I
 {
     public interface IAuthenticate
     {
-        bool Authenticate(IUser user);
+        bool Authenticate(IUser user, IUser foundUser);
     }
 }
