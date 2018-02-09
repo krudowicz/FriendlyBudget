@@ -1,4 +1,3 @@
-using FriendlyBudget.Web.Backend.Model.Application_Services.Authentication.Enums;
 using FriendlyBudget.Web.Backend.Model.Application_Services.Authentication.Interfaces;
 using FriendlyBudget.Web.Backend.Model.Interfaces;
 using System;
@@ -10,16 +9,16 @@ namespace FriendlyBudget.Web.Backend.Model.Application_Services.Authentication
 {
     public class AuthToken : IAuthToken
     {
-        private ITokenValidation hashAlgorithm;
+        private IEncryption hashAlgorithm;
 
         public bool IsValid { get => Validate(this, hashAlgorithm); }
 
-        public AuthToken(IUser user, ITokenValidation algorithm)
+        public AuthToken(IUser user, IEncryption algorithm)
         {
             this.hashAlgorithm = algorithm;
         }
 
-        public bool Validate(IAuthToken token, ITokenValidation validation)
+        public bool Validate(IAuthToken token, IEncryption validation)
         {
             bool valid = false;
 

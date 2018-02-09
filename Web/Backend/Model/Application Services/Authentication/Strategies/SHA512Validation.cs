@@ -5,7 +5,7 @@ using System.Text;
 
 namespace FriendlyBudget.Web.Backend.Model.Application_Services.Authentication.Strategies
 {
-    class SHA512Validation : ITokenValidation
+    class SHA512Validation : IEncryption
     {
         public bool Validate(IAuthToken token)
         {
