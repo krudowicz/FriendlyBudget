@@ -76,6 +76,27 @@ namespace FriendlyBudget.Web.Backend.Infrastructure.Repositories
             return user;
         }
 
+        public IUser GetByUsername(string username, out bool found)
+        {
+            found = false;
+
+            var query = from u in _context.Users
+                        where u.Username == username
+                        select u;
+
+            User user = query.FirstOrDefault();
+
+            if(user != null)
+            {
+                found = true;
+            }
+
+            Users.Clear();
+            Users.Add(user);
+
+            return user;
+        }
+
         public void Add(IUser item)
         {
             item = (User)item;

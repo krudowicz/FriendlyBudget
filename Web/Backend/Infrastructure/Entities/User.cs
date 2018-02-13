@@ -12,6 +12,7 @@ namespace FriendlyBudget.Web.Backend.Infrastructure.Entities
         public string Email { get; set; }
         public string Password { get; set; }
         public IRole Role { get; set; }
+        public string LastLogin { get; set; }
         public string AddedAt { get; set; }
         public string ModifiedAt { get; set; }
     }

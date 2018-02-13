@@ -33,35 +33,32 @@ namespace FriendlyBudget.Web.Backend.Model.Application_Services.Authentication
                 return;
             }
 
-            //user.Token = TokenGenerator.Generate();
+            foundUser.LastLogin = DateTime.Today.ToString();
+            _repository.Modify(foundUser);
+
+            //user.Authenticated = true;
         }
 
         public void AuthenticateByUsername(IUser user)
         {
-            throw new NotImplementedException();
-        }
+            bool found = false;
+            IUser foundUser = _repository.GetByUsername(user.Username, out found);
 
-        public bool CheckToken(IUser user)
-        {
-            throw new NotImplementedException();
+            if(!found)
+            {
+                return;
+            }
 
-            //Future code
-            /* bool authenticated = false;
-             * string token = user.Token;
-             * 
-             * if(token == null || token == string.Empty) {
-             *     return authenticated;
-             * }
-             * 
-             * bool valid = CheckValidity(token);
-             * 
-             * if(!valid) {
-             *     return authenticated;
-             * }
-             * 
-             * valid = true;
-             * return valid;
-             */
+            bool authenticated = Authenticator.Authenticate(user, foundUser, new UsernameAuthentication());
+
+            if(!authenticated)
+            {
+                return;
+            }
+
+            foundUser.LastLogin = DateTime.Today.ToString();
+            _repository.Modify(foundUser);
+            //User.Authenticated = true;
         }
     }
 }

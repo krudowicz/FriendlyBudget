@@ -11,5 +11,6 @@ namespace FriendlyBudget.Web.Backend.Model.Interfaces
         string Email { get; set; }
         string Password { get; set; }
         IRole Role { get; set; }
+        string LastLogin { get; set; }
     }
 }
