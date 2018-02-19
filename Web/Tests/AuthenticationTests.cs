@@ -3,12 +3,16 @@ using FriendlyBudget.Web.Backend.Model.Application_Services.Authentication;
 using FriendlyBudget.Web.Backend.Model.Application_Services.Authentication.Strategies;
 using FriendlyBudget.Web.Backend.Model.Interfaces;
 using NUnit.Framework;
+using System;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace FriendlyBudget.Web.Tests
 {
     [TestFixture]
     class AuthenticationTests
     {
+        private IUser TestUser { get; set; }
         private IUser ValidUser { get; set; }
         private IUser InvalidEmailUser { get; set; }
         private IUser InvalidPasswordUser { get; set; }
@@ -19,6 +23,7 @@ namespace FriendlyBudget.Web.Tests
 
         public AuthenticationTests()
         {
+            TestUser = new UserDto();
             ValidUser = new UserDto();
             InvalidEmailUser = new UserDto();
             InvalidPasswordUser = new UserDto();
@@ -28,8 +33,14 @@ namespace FriendlyBudget.Web.Tests
         [OneTimeSetUp]
         public void Setup()
         {
+            UTF8Encoding encoding = new UTF8Encoding();
+            SHA256CryptoServiceProvider cryptoService = new SHA256CryptoServiceProvider();
+
+            TestUser.Username = "Correctname";
+            TestUser.Password = cryptoService.ComputeHash(encoding.GetBytes("CorrectPassword")).ToString();
+
             ValidUser.Username = "Correctname";
-            ValidUser.Password = "Correctpassword";
+            ValidUser.Password = "CorrectPassword";
 
             InvalidEmailUser.Username = "Incorrectname";
             InvalidEmailUser.Password = "Correctpassword";
@@ -47,6 +58,7 @@ namespace FriendlyBudget.Web.Tests
         [OneTimeTearDown]
         public void Teardown()
         {
+            TestUser = null;
             ValidUser = null;
             InvalidEmailUser = null;
             InvalidPasswordUser = null;
@@ -58,7 +70,7 @@ namespace FriendlyBudget.Web.Tests
         [Test]
         public void User_Is_Authenticated_By_Email()
         {
-            bool result = Authenticator.Authenticate(ValidUser, ValidUser, new EmailAuthentication());
+            bool result = Authenticator.Authenticate(ValidUser, TestUser, new EmailAuthentication());
 
             Assert.IsTrue(result);
         }
@@ -66,9 +78,12 @@ namespace FriendlyBudget.Web.Tests
         [Test]
         public void User_Provided_Wrong_Password()
         {
-            bool result = Authenticator.Authenticate(InvalidPasswordUser, ValidUser, new EmailAuthentication());
+            void test()
+            {
+                bool result = Authenticator.Authenticate(InvalidPasswordUser, TestUser, new EmailAuthentication());
+            }
 
-            Assert.IsFalse(result);
+            Assert.Throws(typeof(UnauthorizedAccessException), test);
         }
 
         [Test]

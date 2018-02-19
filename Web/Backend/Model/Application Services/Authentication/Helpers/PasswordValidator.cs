@@ -8,9 +8,9 @@ namespace FriendlyBudget.Web.Backend.Model.Application_Services.Authentication.H
 {
     class PasswordValidator
     {
-        public bool Validate(string password, IUser user, IHashingAlgorithm usedAlgorithm)
+        public static bool Validate(IUser user, IUser foundUser, IHashingAlgorithm usedAlgorithm)
         {
-            return usedAlgorithm.Validate(password, user);
+            return usedAlgorithm.Validate(user, foundUser);
         }
     }
 }

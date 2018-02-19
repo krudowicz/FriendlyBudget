@@ -7,6 +7,6 @@ namespace FriendlyBudget.Web.Backend.Model.Application_Services.Authentication.I
 {
     interface IHashingAlgorithm
     {
-        bool Validate(string password, IUser user);
+        bool Validate(IUser user, IUser foundUser);
     }
 }
