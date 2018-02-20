@@ -1,4 +1,5 @@
-﻿using FriendlyBudget.Web.Backend.Model.Application_Services.Authentication.Interfaces;
+﻿using FriendlyBudget.Web.Backend.Model.Application_Services.Authentication.Helpers;
+using FriendlyBudget.Web.Backend.Model.Application_Services.Authentication.Interfaces;
 using FriendlyBudget.Web.Backend.Model.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -15,7 +16,14 @@ namespace FriendlyBudget.Web.Backend.Model.Application_Services.Authentication.S
 
         public bool Authenticate(IUser user, IUser foundUser)
         {
-            throw new NotImplementedException();
+            bool result = false;
+
+            if(user != null && user.Username == foundUser.Username)
+            {
+                return PasswordValidator.Validate(user, foundUser, new BCryptHashing());
+            }
+
+            return result;
         }
     }
 }

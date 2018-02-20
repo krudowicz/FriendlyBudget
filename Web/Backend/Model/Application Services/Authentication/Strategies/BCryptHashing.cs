@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using BCrypt.Net;
+using BCrypt;
 using FriendlyBudget.Web.Backend.Model.Application_Services.Authentication.Interfaces;
 using FriendlyBudget.Web.Backend.Model.Interfaces;
 
@@ -11,7 +11,7 @@ namespace FriendlyBudget.Web.Backend.Model.Application_Services.Authentication.S
     {
         public bool Validate(IUser user, IUser foundUser)
         {
-            return BCrypt.Net.BCrypt.Verify(user.Password, foundUser.Password);
+            return BCryptHelper.CheckPassword(user.Password, foundUser.Password);
         }
     }
 }

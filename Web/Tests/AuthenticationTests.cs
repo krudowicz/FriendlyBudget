@@ -1,4 +1,5 @@
-﻿using FriendlyBudget.Web.Backend.Infrastructure.DTO;
+﻿using BCrypt;
+using FriendlyBudget.Web.Backend.Infrastructure.DTO;
 using FriendlyBudget.Web.Backend.Model.Application_Services.Authentication;
 using FriendlyBudget.Web.Backend.Model.Application_Services.Authentication.Strategies;
 using FriendlyBudget.Web.Backend.Model.Interfaces;
@@ -15,7 +16,7 @@ namespace FriendlyBudget.Web.Tests
     {
         private IUser TestUser { get; set; }
         private IUser ValidUser { get; set; }
-        private IUser InvalidEmailUser { get; set; }
+        private IUser InvalidUser { get; set; }
         private IUser InvalidPasswordUser { get; set; }
         private IUser InvalidEmailAndPasswordUser { get; set; }
 
@@ -23,7 +24,7 @@ namespace FriendlyBudget.Web.Tests
         {
             TestUser = new UserDto();
             ValidUser = new UserDto();
-            InvalidEmailUser = new UserDto();
+            InvalidUser = new UserDto();
             InvalidPasswordUser = new UserDto();
             InvalidEmailAndPasswordUser = new UserDto();
         }
@@ -31,31 +32,35 @@ namespace FriendlyBudget.Web.Tests
         [OneTimeSetUp]
         public void Setup()
         {
-            UTF8Encoding encoding = new UTF8Encoding();
-            SHA256CryptoServiceProvider cryptoService = new SHA256CryptoServiceProvider();
+            string passwordSalt = BCryptHelper.GenerateSalt(14);
 
+            TestUser.Email = "Correct@mail.com";
             TestUser.Username = "Correctname";
-            TestUser.Password = BCrypt.Net.BCrypt.HashPassword("Correctpassword");
+            TestUser.Password = BCryptHelper.HashPassword("Correctpassword", passwordSalt);
 
+            ValidUser.Email = "Correct@mail.com";
             ValidUser.Username = "Correctname";
             ValidUser.Password = "Correctpassword";
 
-            InvalidEmailUser.Username = "Incorrectname";
-            InvalidEmailUser.Password = "Correctpassword";
+            InvalidUser.Email = "Incorrectorrect@mail.com";
+            InvalidUser.Username = "Incorrectname";
+            InvalidUser.Password = "Correctpassword";
 
             InvalidPasswordUser.Username = "Correctname";
             InvalidPasswordUser.Password = "Incorrectpassword";
 
+            InvalidEmailAndPasswordUser.Email = "Incorrectorrect@mail.com";
             InvalidEmailAndPasswordUser.Username = "Incorrectusername";
             InvalidEmailAndPasswordUser.Password = "Incorrectpassword";
         }
 
+        //TODO: Rewrite the tests to match reality and tested parts.
         [OneTimeTearDown]
         public void Teardown()
         {
             TestUser = null;
             ValidUser = null;
-            InvalidEmailUser = null;
+            InvalidUser = null;
             InvalidPasswordUser = null;
             InvalidEmailAndPasswordUser = null;
         }
@@ -82,7 +87,7 @@ namespace FriendlyBudget.Web.Tests
         [Test]
         public void Email_Does_Not_Exist()
         {
-            bool result = Authenticator.Authenticate(InvalidEmailUser, null, new EmailAuthentication());
+            bool result = Authenticator.Authenticate(InvalidUser, null, new EmailAuthentication());
 
             Assert.IsFalse(result);
         }

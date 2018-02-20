@@ -58,6 +58,8 @@ namespace FriendlyBudget.Web.Backend.Model.Application_Services.Authentication
 
             foundUser.LastLogin = DateTime.Today.ToString();
             _repository.Modify(foundUser);
+
+            //user.Authenticated = true;
         }
     }
 }
