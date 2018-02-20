@@ -4,6 +4,7 @@ using FriendlyBudget.Web.Backend.Model.Application_Services.Authentication.Strat
 using FriendlyBudget.Web.Backend.Model.Interfaces;
 using NUnit.Framework;
 using System;
+using System.Diagnostics;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -17,9 +18,6 @@ namespace FriendlyBudget.Web.Tests
         private IUser InvalidEmailUser { get; set; }
         private IUser InvalidPasswordUser { get; set; }
         private IUser InvalidEmailAndPasswordUser { get; set; }
-
-        private string CorrectUsername { get; set; }
-        private string CorrectPassword { get; set; }
 
         public AuthenticationTests()
         {
@@ -37,10 +35,10 @@ namespace FriendlyBudget.Web.Tests
             SHA256CryptoServiceProvider cryptoService = new SHA256CryptoServiceProvider();
 
             TestUser.Username = "Correctname";
-            TestUser.Password = cryptoService.ComputeHash(encoding.GetBytes("CorrectPassword")).ToString();
+            TestUser.Password = BCrypt.Net.BCrypt.HashPassword("Correctpassword");
 
             ValidUser.Username = "Correctname";
-            ValidUser.Password = "CorrectPassword";
+            ValidUser.Password = "Correctpassword";
 
             InvalidEmailUser.Username = "Incorrectname";
             InvalidEmailUser.Password = "Correctpassword";
@@ -50,9 +48,6 @@ namespace FriendlyBudget.Web.Tests
 
             InvalidEmailAndPasswordUser.Username = "Incorrectusername";
             InvalidEmailAndPasswordUser.Password = "Incorrectpassword";
-
-            CorrectUsername = "Correctusername";
-            CorrectPassword = "Correctpassword";
         }
 
         [OneTimeTearDown]
@@ -63,8 +58,6 @@ namespace FriendlyBudget.Web.Tests
             InvalidEmailUser = null;
             InvalidPasswordUser = null;
             InvalidEmailAndPasswordUser = null;
-            CorrectUsername = string.Empty;
-            CorrectPassword = string.Empty;
         }
 
         [Test]
@@ -78,12 +71,12 @@ namespace FriendlyBudget.Web.Tests
         [Test]
         public void User_Provided_Wrong_Password()
         {
-            void test()
+            bool test()
             {
-                bool result = Authenticator.Authenticate(InvalidPasswordUser, TestUser, new EmailAuthentication());
+                return Authenticator.Authenticate(InvalidPasswordUser, TestUser, new EmailAuthentication());
             }
 
-            Assert.Throws(typeof(UnauthorizedAccessException), test);
+            Assert.IsFalse(test());
         }
 
         [Test]

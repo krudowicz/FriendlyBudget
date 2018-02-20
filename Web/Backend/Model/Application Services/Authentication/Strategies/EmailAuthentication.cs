@@ -21,10 +21,7 @@ namespace FriendlyBudget.Web.Backend.Model.Application_Services.Authentication.S
 
             if(foundUser != null && user.Email == foundUser.Email)
             {
-                if (PasswordValidator.Validate(user, foundUser, new SHA256Hashing()))
-                {
-                    result = true;
-                }
+                return PasswordValidator.Validate(user, foundUser, new BCryptHashing());
             }
 
             return result;
