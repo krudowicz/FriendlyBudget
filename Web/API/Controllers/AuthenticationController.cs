@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using FriendlyBudget.Web.Backend.Model.Application_Services.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
+using Microsoft.Extensions.Options;
 
 namespace API.Controllers
 {
@@ -15,9 +17,18 @@ namespace API.Controllers
     {
         [AllowAnonymous]
         [HttpPost]
-        public IActionResult RequestToken([FromBody] TokenRequest request)
+        public IActionResult RequestToken([FromBody]TokenRequest request)
         {
-            return BadRequest("Not yet implemented. Like not implemented at all. I'm fucking serious.");
+            using (AuthenticationService service = new AuthenticationService())
+            {
+                bool authenticated = service.AuthenticateByEmail(request);
+                if(!authenticated)
+                {
+                    return BadRequest("Could not authenticate user.");
+                }
+
+                throw new NotImplementedException();
+            }
         }
     }
 }

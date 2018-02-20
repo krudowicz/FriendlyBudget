@@ -9,9 +9,11 @@ using System.Text;
 
 namespace FriendlyBudget.Web.Backend.Model.Application_Services.Authentication
 {
-    class AuthenticationService
+    public class AuthenticationService : IDisposable
     {
-        private AuthenticationContext Context { get; }
+        private bool _disposed = false;
+
+        private AuthenticationContext Context { get; set; }
 
         public AuthenticationService()
         {
@@ -41,11 +43,6 @@ namespace FriendlyBudget.Web.Backend.Model.Application_Services.Authentication
                 foundUser.LastLogin = DateTime.Today.ToString();
                 repository.Modify(foundUser);
 
-                var claims = new[]
-                {
-                    new Claim(ClaimTypes.Name, user.Username)
-                };
-
                 return true;
             }
         }
@@ -74,6 +71,26 @@ namespace FriendlyBudget.Web.Backend.Model.Application_Services.Authentication
                 repository.Modify(foundUser);
 
                 return true;
+            }
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+
+            GC.SuppressFinalize(this);
+        }
+
+        private void Dispose(bool disposing)
+        {
+            if (!_disposed)
+            {
+                if (disposing)
+                {
+                    Context = null;
+                }
+
+                _disposed = true;
             }
         }
     }
