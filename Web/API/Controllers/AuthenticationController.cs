@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.IdentityModel.Tokens.Jwt;
 using Microsoft.Extensions.Options;
 using FriendlyBudget.Web.Backend.Model.Interfaces;
+using FriendlyBudget.Web.Backend.Infrastructure.DTO;
 
 namespace API.Controllers
 {
@@ -18,7 +19,7 @@ namespace API.Controllers
     {
         [AllowAnonymous]
         [HttpPost]
-        public IActionResult LogIn([FromBody]IUser user)
+        public IActionResult LogIn([FromBody]UserDto user)
         {
            using (AuthenticationService service = new AuthenticationService())
            {
@@ -37,13 +38,24 @@ namespace API.Controllers
                     return BadRequest("Wrong username/email or password provided.");
                 }
 
+
+                TokenManager manager = new TokenManager();
+                JwtSecurityToken token = manager.GenerateToken(user);
+                user.Token = token.ToString(); //That will definitely not work.
+
                 throw new NotImplementedException();
            }
         }
 
         
-        public IActionResult LogOut(IUser user)
+        public IActionResult LogOut(UserDto user)
         {
+            TokenManager manager = new TokenManager();
+
+            JwtSecurityToken token = new JwtSecurityToken(user.Token);
+
+            manager.RevokeToken(token);
+
             throw new NotImplementedException();
         }
     }
